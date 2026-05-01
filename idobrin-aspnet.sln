@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet", "idobrin-aspnet\idobrin-aspnet.csproj", "{48F05D0E-2484-46F9-AF1A-EFA660E5A44F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet-api", "idobrin-aspnet-api\idobrin-aspnet-api.csproj", "{48F05D0E-2484-46F9-AF1A-EFA660E5A44F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet-domain", "idobrin-aspnet-domain\idobrin-aspnet-domain.csproj", "{84C6A9F7-D00F-44C7-8663-4E59F56A20BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{48F05D0E-2484-46F9-AF1A-EFA660E5A44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48F05D0E-2484-46F9-AF1A-EFA660E5A44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48F05D0E-2484-46F9-AF1A-EFA660E5A44F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C6A9F7-D00F-44C7-8663-4E59F56A20BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C6A9F7-D00F-44C7-8663-4E59F56A20BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C6A9F7-D00F-44C7-8663-4E59F56A20BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C6A9F7-D00F-44C7-8663-4E59F56A20BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
