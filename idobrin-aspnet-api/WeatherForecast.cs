@@ -1,4 +1,4 @@
-namespace idobrin_aspnet;
+namespace idobrin_aspnet_api;
 
 public class WeatherForecast
 {
