@@ -4,5 +4,5 @@ namespace aspnet_domain.Interfaces;
 
 public interface IMunicipalityRepository : IBaseRepository<Municipality>
 {
-    Task<Country?> ReturnCountryAsync(CancellationToken cancellationToken = default);
+    Task<Municipality?> ReturnCountryAsync(int id, CancellationToken cancellationToken = default);
 }

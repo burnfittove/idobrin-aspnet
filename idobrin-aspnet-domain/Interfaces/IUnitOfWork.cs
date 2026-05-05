@@ -1,6 +1,6 @@
 namespace aspnet_domain.Interfaces;
 
-public interface IUnitOfWork
+public interface IUnitOfWork : IDisposable
 {
     /// <summary>
     /// Country repository.

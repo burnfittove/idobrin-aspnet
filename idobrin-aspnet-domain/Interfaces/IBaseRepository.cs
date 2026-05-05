@@ -22,7 +22,7 @@ public interface IBaseRepository<T> where T : Base
     /// </summary>
     /// <param name="entity">Entity T.</param>
     /// <returns>T</returns>
-    Task<T?> CreateAsync(T entity, CancellationToken cancellationToken = default);
+    Task<T> CreateAsync(T entity, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Updates an entity.
