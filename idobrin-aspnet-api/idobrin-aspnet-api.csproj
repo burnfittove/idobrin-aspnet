@@ -25,6 +25,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\idobrin-aspnet-dal\idobrin-aspnet-dal.csproj" />
+      <ProjectReference Include="..\idobrin-aspnet-logic\idobrin-aspnet-logic.csproj" />
     </ItemGroup>
 
 </Project>

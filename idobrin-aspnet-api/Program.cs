@@ -1,11 +1,24 @@
+using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Configs;
+using idobrin_aspnet_dal.Repositories;
+using idobrin_aspnet_logic.Interfaces;
+using idobrin_aspnet_logic.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Register DBContext
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), 
-    serverVersion:ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("Defaultconnection"))));
+    serverVersion:ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+// Register UnitOfWork
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+// Register Repos
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<IMunicipalityRepository, MunicipalityRepository>();
+// Register services
+builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IMunicipalityService, MunicipalityService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

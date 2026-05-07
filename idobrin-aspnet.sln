@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet-api", "idobr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet-dal", "idobrin-aspnet-dal\idobrin-aspnet-dal.csproj", "{635B2C5A-0F2D-4303-90E0-1163AE47A753}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idobrin-aspnet-logic", "idobrin-aspnet-logic\idobrin-aspnet-logic.csproj", "{465DCD5D-79F3-4A45-A10F-1CCB075813B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{635B2C5A-0F2D-4303-90E0-1163AE47A753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{635B2C5A-0F2D-4303-90E0-1163AE47A753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{635B2C5A-0F2D-4303-90E0-1163AE47A753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465DCD5D-79F3-4A45-A10F-1CCB075813B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465DCD5D-79F3-4A45-A10F-1CCB075813B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465DCD5D-79F3-4A45-A10F-1CCB075813B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465DCD5D-79F3-4A45-A10F-1CCB075813B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -3,25 +3,19 @@ using idobrin_aspnet_dal.Configs;
 
 namespace idobrin_aspnet_dal.Repositories;
 
-public class UnitOfWork : IUnitOfWork
+public class UnitOfWork(DatabaseContext context) : IUnitOfWork
 {
-    private readonly DatabaseContext _context;
     private ICountryRepository? _countryRepo;
     private IMunicipalityRepository? _municipalityRepo;
     // private IPersonRepository? _personRepo;
     private bool disposed = false;
     
-    public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(_context);
-    public IMunicipalityRepository MunicipalityRepository => _municipalityRepo ??= new MunicipalityRepository(_context);
-
-    private UnitOfWork(DatabaseContext context)
-    {
-        _context = context;
-    }
+    public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
+    public IMunicipalityRepository MunicipalityRepository => _municipalityRepo ??= new MunicipalityRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        return await _context.SaveChangesAsync(cancellationToken);
+        return await context.SaveChangesAsync(cancellationToken);
     }
 
     public void Dispose()
@@ -36,7 +30,7 @@ public class UnitOfWork : IUnitOfWork
         if (disposed) return;
         
         // Dispose DbContext
-        _context.Dispose();
+        context.Dispose();
 
         // Note that Dispose has been completed
         disposed = true;
