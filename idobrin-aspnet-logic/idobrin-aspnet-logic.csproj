@@ -11,8 +11,4 @@
       <ProjectReference Include="..\idobrin-aspnet-dal\idobrin-aspnet-dal.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Validators\" />
-    </ItemGroup>
-
 </Project>

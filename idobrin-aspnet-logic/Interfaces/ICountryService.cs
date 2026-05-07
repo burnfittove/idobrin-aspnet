@@ -48,5 +48,5 @@ public interface ICountryService
     /// </summary>
     /// <param name="id">ID of country.</param>
     /// <returns>Country with all of its municipalities.</returns>
-    Task<CountryReturn?> GetAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default);
+    Task<CountryReturn?> ReturnAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default);
 }

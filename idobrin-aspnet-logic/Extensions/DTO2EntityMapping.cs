@@ -8,7 +8,7 @@ public static class DTO2EntityMapping
 {
     public static CountryReturn Entity2Dto(this Country country)
     {
-        return new CountryReturn(country.Id, country.Name, country.Municipalities.EntityList2DtoList());
+        return country == null ? null : new CountryReturn(country.Id, country.Name, country.Municipalities.EntityList2DtoList());
     }
 
     public static IEnumerable<CountryReturn> EntityList2DtoList(this IEnumerable<Country> countries)

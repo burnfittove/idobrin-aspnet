@@ -10,10 +10,12 @@ public class CountryController(ICountryService countryService) : ControllerBase
 {
     private readonly ICountryService _countryService = countryService;
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
+    
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<CountryReturn>> GetCountry(int id, CancellationToken cancellationToken)
     {
-        var entity = await _countryService.ReturnByIdAsync(id, cancellationToken);
+        var entity = await _countryService.ReturnAllMunicipalitiesInCountry(id, cancellationToken);
         if (entity == null) return NotFound();
         return Ok(entity);
     }

@@ -1,3 +1,4 @@
+using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Repositories;
 using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.Extensions;
@@ -5,9 +6,9 @@ using idobrin_aspnet_logic.Interfaces;
 
 namespace idobrin_aspnet_logic.Services;
 
-public class CountryService(UnitOfWork unitOfWork) : ICountryService
+public class CountryService(IUnitOfWork unitOfWork) : ICountryService
 {
-    private readonly UnitOfWork _unitOfWork = unitOfWork;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     
     /// <summary>
     /// Uses UnitOfWork to access the necessary repository and return an entity by its id.
@@ -69,7 +70,7 @@ public class CountryService(UnitOfWork unitOfWork) : ICountryService
         return await _unitOfWork.CountryRepository.ExistsAsync(id, cancellationToken);
     }
 
-    public async Task<CountryReturn?> GetAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default)
+    public async Task<CountryReturn?> ReturnAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.CountryRepository.ReturnMunicipalitiesAsync(id, cancellationToken);
         return entity.Entity2Dto();

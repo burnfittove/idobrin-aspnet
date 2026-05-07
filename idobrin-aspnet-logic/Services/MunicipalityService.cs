@@ -1,3 +1,4 @@
+using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Repositories;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.Extensions;
@@ -5,9 +6,9 @@ using idobrin_aspnet_logic.Interfaces;
 
 namespace idobrin_aspnet_logic.Services;
 
-public class MunicipalityService(UnitOfWork unitOfWork) : IMunicipalityService
+public class MunicipalityService(IUnitOfWork unitOfWork) : IMunicipalityService
 {
-    private readonly UnitOfWork _unitOfWork = unitOfWork;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     
     public async Task<MunicipalityReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
