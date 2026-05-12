@@ -2,7 +2,7 @@ using aspnet_domain.Entities;
 
 namespace aspnet_domain.Interfaces;
 
-public interface IPersonRepository : IBaseRepository<Person>
+public interface IUserRepository : IBaseRepository<User>
 {
     
 }

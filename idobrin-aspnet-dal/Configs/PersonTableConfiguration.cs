@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace idobrin_aspnet_dal.Configs;
 
-public class PersonTableConfiguration : IEntityTypeConfiguration<Person>
+public class PersonTableConfiguration : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<Person> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.ToTable("Person");
         
@@ -15,11 +15,5 @@ public class PersonTableConfiguration : IEntityTypeConfiguration<Person>
 
         builder.Property(e => e.FirstName).IsRequired().IsUnicode();
         builder.Property(e => e.Email).IsRequired().IsUnicode();
-
-        builder
-            .HasOne(e => e.Municipality)
-            .WithMany(m => m.Persons)
-            .HasForeignKey(e => e.MunicipalityId)
-            .IsRequired();
     }
 }

@@ -7,7 +7,7 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
 {
     public DbSet<Country> Countries { get; set; }
     public DbSet<Municipality> Municipalities { get; set; }
-    public DbSet<Person> Persons { get; set; }
+    public DbSet<User> Persons { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
