@@ -11,10 +11,17 @@ public class CountryRepository : BaseRepository<Country>, ICountryRepository
     {
     }
 
-    public async Task<Country?> ReturnMunicipalitiesAsync(int id, CancellationToken cancellationToken = default)
+    public override async Task<Country?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
             .Include(e => e.Municipalities)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+    }
+
+    public override async Task<IEnumerable<Country>> ReturnAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await DbSet
+            .Include(e => e.Municipalities)
+            .ToListAsync(cancellationToken);
     }
 }

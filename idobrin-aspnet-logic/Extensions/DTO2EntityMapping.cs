@@ -6,9 +6,11 @@ namespace idobrin_aspnet_logic.Extensions;
 
 public static class DTO2EntityMapping
 {
+    #region Country
+
     public static CountryReturn Entity2Dto(this Country country)
     {
-        return country == null ? null : new CountryReturn(country.Id, country.Name, country.Municipalities.EntityList2DtoList());
+        return new CountryReturn(country.Id, country.Name);
     }
 
     public static IEnumerable<CountryReturn> EntityList2DtoList(this IEnumerable<Country> countries)
@@ -21,9 +23,19 @@ public static class DTO2EntityMapping
         return new Country { Name = country.Name };
     }
 
+    public static CountryReturnIncludeMunicipality Entity2DtoWithMunicipalities(this Country country)
+    {
+        return new CountryReturnIncludeMunicipality(country.Id, country.Name, country.Municipalities.EntityList2DtoList());
+    }
+
+    #endregion
+    
+
+    #region Municipality
+    
     public static MunicipalityReturn Entity2Dto(this Municipality municipality)
     {
-        return new MunicipalityReturn(municipality.Id, municipality.Name, municipality.CountryId);
+        return new MunicipalityReturn(municipality.Id, municipality.Name);
     }
 
     public static IEnumerable<MunicipalityReturn> EntityList2DtoList(this IEnumerable<Municipality> municipalities)
@@ -35,4 +47,11 @@ public static class DTO2EntityMapping
     {
         return new Municipality { Name = municipality.Name, CountryId = municipality.CountryId };
     }
+
+    public static MunicipalityReturnIncludeCountry Dto2EntityWithCountry(this Municipality municipality)
+    {
+        return new MunicipalityReturnIncludeCountry(municipality.Id, municipality.Name, municipality.Country?.Entity2Dto());
+    }
+    
+    #endregion
 }

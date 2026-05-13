@@ -12,6 +12,13 @@ public interface IMunicipalityService
     Task<MunicipalityReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default);
     
     /// <summary>
+    /// Returns an entity by its ID along with the country it belongs to.
+    /// </summary>
+    /// <param name="id">Entity ID.</param>
+    /// <returns>A municipality along with the country it belongs to.</returns>
+    Task<MunicipalityReturnIncludeCountry?> ReturnByIdWithCountryAsync(int id, CancellationToken cancellationToken = default);
+    
+    /// <summary>
     /// Returns all entities.
     /// </summary>
     /// <returns>IEnumerable&lt;Entity&gt;.</returns>

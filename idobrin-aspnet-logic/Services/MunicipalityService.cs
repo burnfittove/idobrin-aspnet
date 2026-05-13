@@ -13,13 +13,19 @@ public class MunicipalityService(IUnitOfWork unitOfWork) : IMunicipalityService
     public async Task<MunicipalityReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.MunicipalityRepository.ReturnByIdAsync(id, cancellationToken);
-        return entity.Entity2Dto();
+        return entity?.Entity2Dto();
+    }
+
+    public async Task<MunicipalityReturnIncludeCountry?> ReturnByIdWithCountryAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var entity = await _unitOfWork.MunicipalityRepository.ReturnByIdAsync(id, cancellationToken);
+        return entity?.Dto2EntityWithCountry();
     }
 
     public async Task<IEnumerable<MunicipalityReturn>> ReturnAllAsync(CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.MunicipalityRepository.ReturnAllAsync(cancellationToken);
-        return entity.EntityList2DtoList();
+        return entity?.EntityList2DtoList();
     }
 
     public async Task<MunicipalityReturn> CreateAsync(MunicipalityCreate country, CancellationToken cancellationToken = default)
