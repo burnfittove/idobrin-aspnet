@@ -4,6 +4,6 @@ public class Municipality : Base
 {
     public string? Name { get; set; }
     public int CountryId { get; set; }
-    public Country? Country { get; } = new Country();
-    public IEnumerable<Person>? Persons { get; set; }
+    public virtual Country? Country { get; } = new Country();
+    public virtual IEnumerable<User>? Persons { get; set; }
 }

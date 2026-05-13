@@ -1,6 +1,5 @@
 using aspnet_domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace idobrin_aspnet_dal.Configs;
@@ -22,7 +21,8 @@ public class MunicipalityTableConfiguration : IEntityTypeConfiguration<Municipal
             .HasOne(e => e.Country)
             .WithMany(e => e.Municipalities)
             .HasForeignKey(e => e.CountryId)
-            .IsRequired();
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Restrict);
         
         builder
             .HasMany(e => e.Persons)
