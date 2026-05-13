@@ -23,11 +23,5 @@ public class MunicipalityTableConfiguration : IEntityTypeConfiguration<Municipal
             .HasForeignKey(e => e.CountryId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Restrict);
-        
-        builder
-            .HasMany(e => e.Persons)
-            .WithOne(e => e.Municipality)
-            .HasForeignKey(e => e.MunicipalityId)
-            .IsRequired();
     }
 }

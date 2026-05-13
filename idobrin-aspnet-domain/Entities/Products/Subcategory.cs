@@ -4,5 +4,6 @@ public class Subcategory : Base
 {
     public string Name { get; set; } = "";
     public int CategoryId { get; set; } = 0;
-    public Category Category { get; set; } = new();
+    public virtual Category Category { get; set; } = new();
+    public virtual IEnumerable<Product> Products { get; set; } = new List<Product>();
 }

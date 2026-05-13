@@ -11,10 +11,17 @@ public class MunicipalityRepository : BaseRepository<Municipality>, IMunicipalit
     {
     }
 
-    public async Task<Municipality?> ReturnCountryAsync(int id, CancellationToken cancellationToken = default)
+    public async Task<Municipality?> ReturnMunicipalityWithAddresses(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
-            .Include(e => e.Country)
+            .Include(e => e.Addresses)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+    }
+
+    public async Task<IEnumerable<Municipality>> ReturnAllMunicipalitiesWithAddresses(int id, CancellationToken cancellationToken = default)
+    {
+        return await DbSet
+            .Include(e => e.Addresses)
+            .ToListAsync(cancellationToken);
     }
 }
