@@ -9,4 +9,5 @@ public class Order : Base
     public DateTime? ReturnedAt { get; set; }
     public int UserId { get; set; }
     public virtual User User { get; set; } = new();
+    public virtual IEnumerable<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }
