@@ -12,7 +12,7 @@ using idobrin_aspnet_dal.Configs;
 namespace idobrin_aspnet_dal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260505162728_InitialMigration")]
+    [Migration("20260514121224_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -24,6 +24,29 @@ namespace idobrin_aspnet_dal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("aspnet_domain.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .IsUnicode(true)
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("SupercategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SupercategoryId");
+
+                    b.ToTable("Categories", (string)null);
+                });
 
             modelBuilder.Entity("aspnet_domain.Entities.Country", b =>
                 {
@@ -52,8 +75,7 @@ namespace idobrin_aspnet_dal.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CountryId")
-                        .IsRequired()
+                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -69,7 +91,32 @@ namespace idobrin_aspnet_dal.Migrations
                     b.ToTable("Municipalities", (string)null);
                 });
 
-            modelBuilder.Entity("aspnet_domain.Entities.Person", b =>
+            modelBuilder.Entity("aspnet_domain.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -88,10 +135,11 @@ namespace idobrin_aspnet_dal.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .IsUnicode(true)
                         .HasColumnType("longtext");
 
                     b.Property<int?>("MunicipalityId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
@@ -101,7 +149,17 @@ namespace idobrin_aspnet_dal.Migrations
 
                     b.HasIndex("MunicipalityId");
 
-                    b.ToTable("Person", (string)null);
+                    b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Category", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Category", "Supercategory")
+                        .WithMany("Categories")
+                        .HasForeignKey("SupercategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Supercategory");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Municipality", b =>
@@ -115,15 +173,29 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("aspnet_domain.Entities.Person", b =>
+            modelBuilder.Entity("aspnet_domain.Entities.Product", b =>
                 {
-                    b.HasOne("aspnet_domain.Entities.Municipality", "Municipality")
-                        .WithMany("Persons")
-                        .HasForeignKey("MunicipalityId")
+                    b.HasOne("aspnet_domain.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Municipality");
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.User", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Municipality", null)
+                        .WithMany("Persons")
+                        .HasForeignKey("MunicipalityId");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Category", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Country", b =>

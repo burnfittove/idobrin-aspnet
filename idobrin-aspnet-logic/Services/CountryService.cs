@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Repositories;
 using idobrin_aspnet_logic.DTOs.Country;
@@ -18,6 +19,7 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     public async Task<CountryReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.CountryRepository.ReturnByIdAsync(id, cancellationToken);
+        Console.WriteLine(entity);
         return entity.Entity2Dto();
     }
 
