@@ -5,12 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace idobrin_aspnet_dal.Repositories;
 
-public class MunicipalityRepository : BaseRepository<Municipality>, IMunicipalityRepository
+public class MunicipalityRepository(DatabaseContext context)
+    : BaseRepository<Municipality>(context), IMunicipalityRepository
 {
-    public MunicipalityRepository(DatabaseContext context) : base(context)
-    {
-    }
-
     public async Task<Municipality?> ReturnCountryAsync(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
