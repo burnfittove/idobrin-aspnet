@@ -1,3 +1,3 @@
 namespace idobrin_aspnet_logic.DTOs.Category;
 
-public record CategoryReturn(int Id, string Name, IEnumerable<CategoryReturn>? Subcategories);
+public record CategoryReturn(int Id, string Name);

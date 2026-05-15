@@ -19,7 +19,7 @@ public class CountryController(ICountryService countryService) : ControllerBase
         return Ok(entity);
     }
 
-    [HttpGet]
+    [HttpGet("all")]
     public async Task<ActionResult<CountryReturn>> ReturnAllCountries(CancellationToken cancellationToken)
     {
         var entity = await _countryService.ReturnAllAsync(cancellationToken);

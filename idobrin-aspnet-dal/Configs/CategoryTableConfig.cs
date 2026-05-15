@@ -13,20 +13,5 @@ public class CategoryTableConfig : IEntityTypeConfiguration<Category>
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.Name).IsUnicode().IsRequired(); 
-        
-        // Relations (Category and Products)
-        builder
-            .HasMany(e => e.Subcategories)
-            .WithOne(e => e.Supercategory)
-            .HasForeignKey(e => e.SupercategoryId)
-            .OnDelete(DeleteBehavior.Cascade);
-        
-        builder
-            .HasMany(e => e.Products)
-            .WithOne(e => e.Category)
-            .HasForeignKey(e => e.CategoryId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        // builder.Navigation(e => e.Supercategory).AutoInclude();
     }
 }

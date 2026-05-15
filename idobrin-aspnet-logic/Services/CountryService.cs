@@ -20,7 +20,7 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     {
         var entity = await _unitOfWork.CountryRepository.ReturnByIdAsync(id, cancellationToken);
         Console.WriteLine(entity);
-        return entity.Entity2Dto();
+        return entity.ToDto();
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     public async Task<IEnumerable<CountryReturn>> ReturnAllAsync(CancellationToken cancellationToken = default)
     {
         var entities = await _unitOfWork.CountryRepository.ReturnAllAsync(cancellationToken);
-        return entities.EntityList2DtoList();
+        return entities.ToDtoList();
     }
 
     /// <summary>
@@ -40,10 +40,10 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     /// <returns>The added entity.</returns>
     public async Task<CountryReturn> CreateAsync(CountryCreate country, CancellationToken cancellationToken = default)
     {
-        var entity = country.Dto2Entity();
+        var entity = country.ToEntity();
         var returnEntity = await _unitOfWork.CountryRepository.CreateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return returnEntity.Entity2Dto();
+        return returnEntity.ToDto();
     }
 
     public async Task<bool> UpdateAsync(CountryUpdate country, CancellationToken cancellationToken = default)
@@ -75,6 +75,6 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     public async Task<CountryReturn?> ReturnAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.CountryRepository.ReturnMunicipalitiesAsync(id, cancellationToken);
-        return entity.Entity2Dto();
+        return entity.ToDto();
     }
 }

@@ -11,9 +11,8 @@ public class ProductTableConfig : IEntityTypeConfiguration<Product>
         builder.ToTable("Products");
         
         builder.HasKey(e => e.Id);
-        
-        // ####################
-        // Relations defined in CategoryTableConfig.cs
-        // ####################
+
+        builder.Property(e => e.Name).IsUnicode().IsRequired();
+        builder.Property(e => e.Price).IsRequired();
     }
 }

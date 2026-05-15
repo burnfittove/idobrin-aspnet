@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="aspnetDb_staging@localhost" uuid="3e6a1390-4965-4311-b78a-7be2e2d46b36">
+    <data-source source="LOCAL" name="aspnetDb_staging@localhost" uuid="cbf697bc-70fd-42c9-b029-6af9c2eab39f">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
