@@ -45,4 +45,15 @@ public class CategoryController(ICategoryService categoryService) : ControllerBa
         var entity = await _categoryService.CreateAsync(category, cancellationToken);
         return CreatedAtAction(nameof(ReturnCategory), new { id = entity.Id }, entity);
     }
+
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> DeleteCategory(int id, CancellationToken cancellationToken = default)
+    {
+        var result = await _categoryService.DeleteAsync(id, cancellationToken);
+        
+        if (!result) return NotFound();
+        
+        return NoContent();
+    }
 }
