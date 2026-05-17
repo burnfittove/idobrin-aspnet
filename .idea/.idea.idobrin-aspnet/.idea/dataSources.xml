@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="test@localhost" uuid="8e34d7af-cf84-4d7b-bd95-0a669903137e">
+    <data-source source="LOCAL" name="aspnetDb_staging@localhost" uuid="cbf697bc-70fd-42c9-b029-6af9c2eab39f">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/test</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/aspnetDb_staging</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

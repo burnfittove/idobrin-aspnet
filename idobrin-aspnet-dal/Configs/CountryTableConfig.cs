@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace idobrin_aspnet_dal.Configs;
 
-public class CountryTableConfiguration : IEntityTypeConfiguration<Country>
+public class CountryTableConfig : IEntityTypeConfiguration<Country>
 {
     public void Configure(EntityTypeBuilder<Country> builder)
     {

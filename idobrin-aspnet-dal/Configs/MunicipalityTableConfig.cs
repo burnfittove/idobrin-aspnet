@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace idobrin_aspnet_dal.Configs;
 
-public class MunicipalityTableConfiguration : IEntityTypeConfiguration<Municipality>
+public class MunicipalityTableConfig : IEntityTypeConfiguration<Municipality>
 {
     public void Configure(EntityTypeBuilder<Municipality> builder)
     {

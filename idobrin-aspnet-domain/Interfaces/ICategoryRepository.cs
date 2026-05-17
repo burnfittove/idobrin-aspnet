@@ -1,9 +1,10 @@
-using aspnet_domain.Entities.Products;
+using aspnet_domain.Entities;
 
 namespace aspnet_domain.Interfaces;
 
 public interface ICategoryRepository : IBaseRepository<Category>
 {
-    Task<Category?> ReturnCategoryWithSubcategories(int id, CancellationToken cancellationToken = default);
-    Task<IEnumerable<Category>> ReturnAllCategoriesWithSubcategories(int id, CancellationToken cancellationToken = default);
+    Task<Category?> ReturnCategoryWithProductsAsync(int id, CancellationToken cancellationToken = default);
+    
+    Task<IEnumerable<Category>> ReturnCategoriesWithProductsAsync(CancellationToken cancellationToken = default);
 }

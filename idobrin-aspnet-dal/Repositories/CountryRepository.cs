@@ -5,13 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace idobrin_aspnet_dal.Repositories;
 
-public class CountryRepository : BaseRepository<Country>, ICountryRepository
+public class CountryRepository(DatabaseContext context) : BaseRepository<Country>(context), ICountryRepository
 {
-    public CountryRepository(DatabaseContext context) : base(context)
-    {
-    }
-
-   public async Task<Country?> ReturnCountryWithMunicipalities(int id, CancellationToken cancellationToken = default)
+    public async Task<Country?> ReturnCountryWithMunicipalities(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
             .Include(e => e.Municipalities)

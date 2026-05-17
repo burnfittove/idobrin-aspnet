@@ -1,11 +1,10 @@
-using aspnet_domain.Entities.Products;
-
 namespace aspnet_domain.Entities;
 
 public class Item : Base
 {
-    public int Amount { get; set; }
-    public float TotalPrice { get; set; }
+    public int Quantity { get; set; }
+    public decimal TotalPrice { get; set; }
     public int ProductId { get; set; }
-    public virtual Product Product { get; set; } =  new();
+    public Product Product { get; set; } = new();
+    public virtual ICollection<CartItem>? CartItems { get; set; }
 }
