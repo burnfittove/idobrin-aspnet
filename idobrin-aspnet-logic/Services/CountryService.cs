@@ -19,7 +19,6 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
     public async Task<CountryReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.CountryRepository.ReturnByIdAsync(id, cancellationToken);
-        Console.WriteLine(entity);
         return entity.ToDto();
     }
 
