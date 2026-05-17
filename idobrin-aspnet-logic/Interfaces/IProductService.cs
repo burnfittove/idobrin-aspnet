@@ -31,6 +31,23 @@ public interface IProductService
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
     
     /// <summary>
+    /// Create an entity.
+    /// </summary>
+    /// <param name="category"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<ProductReturn> CreateAsync(ProductCreate product, CancellationToken cancellationToken = default);
+    
+    // <summary>
+    /// Updates an entity.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="category"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<bool> UpdateAsync(int id, ProductUpdate product, CancellationToken cancellationToken = default);
+    
+    /// <summary>
     /// Returns a category with all of its products.
     /// </summary>
     /// <param name="id"></param>

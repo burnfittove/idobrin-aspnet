@@ -86,5 +86,14 @@ public static class DTO2EntityMapping
         var categories = product.CategoryProducts?.Select(e => e.Category.ToDto());
         return product == null ? null : new ProductWithCategoriesReturn(product.Id, product.Name, product.Price, categories);
     }
+
+    public static Product ToEntity(this ProductCreate product)
+    {
+        return new Product
+        {
+            Name = product.Name,
+            Price = product.Price
+        };
+    }
     #endregion
 }
