@@ -70,9 +70,8 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
         return await _unitOfWork.CountryRepository.ExistsAsync(id, cancellationToken);
     }
 
-    public async Task<CountryReturn?> ReturnAllMunicipalitiesInCountry(int id, CancellationToken cancellationToken = default)
+    public async Task<CountryReturnIncludeMunicipality> ReturnCountryByIdWithMunicipalitiesAsync(int id, CancellationToken cancellationToken = default)
     {
-        var entity = await _unitOfWork.CountryRepository.ReturnMunicipalitiesAsync(id, cancellationToken);
-        return entity.ToDto();
+        throw new NotImplementedException();
     }
 }

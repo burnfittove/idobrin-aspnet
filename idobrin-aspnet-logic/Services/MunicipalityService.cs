@@ -16,6 +16,12 @@ public class MunicipalityService(IUnitOfWork unitOfWork) : IMunicipalityService
         return entity.ToDto();
     }
 
+    public async Task<MunicipalityReturnIncludeCountry?> ReturnByIdWithCountryAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var entity = await _unitOfWork.MunicipalityRepository.ReturnByIdWithCountryAsync(id, cancellationToken);
+        return entity.toMunicipalityWithCountryDto();
+    }
+
     public async Task<IEnumerable<MunicipalityReturn>> ReturnAllAsync(CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.MunicipalityRepository.ReturnAllAsync(cancellationToken);

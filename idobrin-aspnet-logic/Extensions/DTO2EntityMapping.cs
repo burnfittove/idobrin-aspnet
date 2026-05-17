@@ -11,7 +11,7 @@ public static class DTO2EntityMapping
     #region Country
     public static CountryReturn ToDto(this Country country)
     {
-        return country == null ? null : new CountryReturn(country.Id, country.Name, country.Municipalities.ToDtoList());
+        return country == null ? null : new CountryReturn(country.Id, country.Name);
     }
 
     public static IEnumerable<CountryReturn> ToDtoList(this IEnumerable<Country> countries)
@@ -28,9 +28,14 @@ public static class DTO2EntityMapping
     #region Municipality
     public static MunicipalityReturn ToDto(this Municipality municipality)
     {
-        return new MunicipalityReturn(municipality.Id, municipality.Name, municipality.CountryId);
+        return new MunicipalityReturn(municipality.Id, municipality.Name);
     }
 
+    public static MunicipalityReturnIncludeCountry toMunicipalityWithCountryDto(this Municipality municipality)
+    {
+        return new MunicipalityReturnIncludeCountry(municipality.Id, municipality.Name, municipality.Country.ToDto());
+    }
+    
     public static IEnumerable<MunicipalityReturn> ToDtoList(this IEnumerable<Municipality> municipalities)
     {
         return municipalities.Select(e => e.ToDto());

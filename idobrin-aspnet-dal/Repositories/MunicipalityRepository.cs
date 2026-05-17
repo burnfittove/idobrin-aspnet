@@ -8,17 +8,10 @@ namespace idobrin_aspnet_dal.Repositories;
 public class MunicipalityRepository(DatabaseContext context)
     : BaseRepository<Municipality>(context), IMunicipalityRepository
 {
-    public async Task<Municipality?> ReturnMunicipalityWithAddresses(int id, CancellationToken cancellationToken = default)
+    public async Task<Municipality?> ReturnByIdWithCountryAsync(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
-            .Include(e => e.Addresses)
+            .Include(e => e.Country)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
-    }
-
-    public async Task<IEnumerable<Municipality>> ReturnAllMunicipalitiesWithAddresses(int id, CancellationToken cancellationToken = default)
-    {
-        return await DbSet
-            .Include(e => e.Addresses)
-            .ToListAsync(cancellationToken);
     }
 }
