@@ -2,7 +2,6 @@ using aspnet_domain.Entities;
 using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Configs;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace idobrin_aspnet_dal.Repositories;
 

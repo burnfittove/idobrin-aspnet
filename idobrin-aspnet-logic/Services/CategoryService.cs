@@ -69,4 +69,14 @@ public class CategoryService(IUnitOfWork unitOfWork) : ICategoryService
     {
         throw new NotImplementedException();
     }
+
+    public async Task<bool> AddProductToCategoryAsync(int categoryId, int productId, CancellationToken cancellationToken = default)
+    {
+        if (!await ExistsAsync(categoryId, cancellationToken)) return false;
+        if (!await _unitOfWork.ProductRepository.ExistsAsync(productId, cancellationToken)) return false;
+        
+        _unitOfWork.CategoryProductsRepository.AddProductToCategoryAsync(categoryId, productId, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 }

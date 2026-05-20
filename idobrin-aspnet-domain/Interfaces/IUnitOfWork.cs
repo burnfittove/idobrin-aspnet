@@ -23,6 +23,11 @@ public interface IUnitOfWork : IDisposable
     IProductRepository ProductRepository { get; }
     
     /// <summary>
+    /// CategoryProducts repository.
+    /// </summary>
+    ICategoryProductsRepository CategoryProductsRepository { get; }
+    
+    /// <summary>
     /// Saves all changes in the database. If one change fail, all others fail as well.
     /// </summary>
     /// <returns>int &#8212; The number of saved changes.</returns>

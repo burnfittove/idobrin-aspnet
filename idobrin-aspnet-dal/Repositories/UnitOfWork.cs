@@ -9,12 +9,14 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private IMunicipalityRepository? _municipalityRepo;
     private ICategoryRepository? _categoryRepo;
     private IProductRepository? _productRepo;
+    private ICategoryProductsRepository? _categoryProductsRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
     public IMunicipalityRepository MunicipalityRepository => _municipalityRepo ??= new MunicipalityRepository(context);
     public ICategoryRepository CategoryRepository => _categoryRepo ??= new CategoryRepository(context);
     public IProductRepository ProductRepository => _productRepo ??= new ProductRepository(context);
+    public ICategoryProductsRepository CategoryProductsRepository =>  _categoryProductsRepo ??= new CategoryProductsRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
