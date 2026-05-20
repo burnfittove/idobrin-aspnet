@@ -1,6 +1,7 @@
 using aspnet_domain.Entities;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
+using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.DTOs.Products;
 
@@ -100,5 +101,19 @@ public static class DTO2EntityMapping
             Price = product.Price
         };
     }
+    #endregion
+
+    #region Item
+
+    public static ItemReturn ToDto(this Item item)
+    {
+        return new ItemReturn(item.Id, item.Quantity, item.TotalPrice, item.Product.ToDto());
+    }
+
+    public static IEnumerable<ItemReturn> ToDtoList(this IEnumerable<Item> items)
+    {
+        return items.Select(e => e.ToDto());
+    }
+
     #endregion
 }
