@@ -4,5 +4,5 @@ namespace aspnet_domain.Interfaces;
 
 public interface ICartRepository : IBaseRepository<Cart>
 {
-    public Task<Cart?> ReturnCartItems(int id, CancellationToken cancellationToken = default);
+    public Task<Cart?> ReturnUsersCartAsync(int id, CancellationToken cancellationToken = default);
 }

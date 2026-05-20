@@ -10,6 +10,8 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private ICategoryRepository? _categoryRepo;
     private IProductRepository? _productRepo;
     private ICategoryProductsRepository? _categoryProductsRepo;
+    private IUserRepository? _userRepo;
+    private ICartRepository? _cartRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
@@ -17,6 +19,8 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public ICategoryRepository CategoryRepository => _categoryRepo ??= new CategoryRepository(context);
     public IProductRepository ProductRepository => _productRepo ??= new ProductRepository(context);
     public ICategoryProductsRepository CategoryProductsRepository =>  _categoryProductsRepo ??= new CategoryProductsRepository(context);
+    public IUserRepository UserRepository => _userRepo ??= new UserRepository(context);
+    public ICartRepository CartRepository => _cartRepo ??= new CartRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

@@ -1,9 +1,11 @@
 using aspnet_domain.Entities;
+using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.DTOs.Products;
+using idobrin_aspnet_logic.DTOs.User;
 
 namespace idobrin_aspnet_logic.Extensions;
 
@@ -113,6 +115,24 @@ public static class DTO2EntityMapping
     public static IEnumerable<ItemReturn> ToDtoList(this IEnumerable<Item> items)
     {
         return items.Select(e => e.ToDto());
+    }
+
+    #endregion
+
+    #region Cart
+
+    public static CartReturn ToDto(this Cart cart)
+    {
+        return new CartReturn(cart.Id, cart.TotalPrice, cart.CartItems.Select(e => e.Item.ToDto()));
+    }
+
+    #endregion
+
+    #region User
+
+    public static UserReturn ToDto(this User user)
+    {
+        return new UserReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
     }
 
     #endregion

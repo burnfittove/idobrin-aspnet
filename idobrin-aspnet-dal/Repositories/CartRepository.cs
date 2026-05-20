@@ -7,11 +7,11 @@ namespace idobrin_aspnet_dal.Repositories;
 
 public class CartRepository(DatabaseContext context) : BaseRepository<Cart>(context), ICartRepository
 {
-    public async Task<Cart?> ReturnCartItems(int id, CancellationToken cancellationToken = default)
+    public async Task<Cart?> ReturnUsersCartAsync(int id, CancellationToken cancellationToken = default)
     {
         return await DbSet
             .Include(x => x.CartItems)
             .ThenInclude(e => e.Item)
-            .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+            .FirstOrDefaultAsync(e => e.User.Id == id, cancellationToken);
     }
 }
