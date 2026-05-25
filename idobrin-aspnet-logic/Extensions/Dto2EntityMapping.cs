@@ -1,5 +1,6 @@
 using aspnet_domain.Entities;
 using idobrin_aspnet_logic.DTOs;
+using idobrin_aspnet_logic.DTOs.Cart;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.DTOs.Item;
@@ -9,7 +10,7 @@ using idobrin_aspnet_logic.DTOs.User;
 
 namespace idobrin_aspnet_logic.Extensions;
 
-public static class DTO2EntityMapping
+public static class Dto2EntityMapping
 {
     #region Country
     public static CountryReturn ToDto(this Country country)
@@ -106,26 +107,26 @@ public static class DTO2EntityMapping
     #endregion
 
     #region Item
-
+    
     public static ItemReturn ToDto(this Item item)
     {
         return new ItemReturn(item.Id, item.Quantity, item.TotalPrice, item.Product.ToDto());
     }
-
+    
     public static IEnumerable<ItemReturn> ToDtoList(this IEnumerable<Item> items)
     {
         return items.Select(e => e.ToDto());
     }
-
+    
     #endregion
 
     #region Cart
-
+    
     public static CartReturn ToDto(this Cart cart)
     {
-        return new CartReturn(cart.Id, cart.TotalPrice, cart.CartItems.Select(e => e.Item.ToDto()));
+        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item.ToDto()));
     }
-
+    
     #endregion
 
     #region User
@@ -133,6 +134,16 @@ public static class DTO2EntityMapping
     public static UserReturn ToDto(this User user)
     {
         return new UserReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
+    }
+
+    public static IEnumerable<UserReturn> ToDtoList(this IEnumerable<User> users)
+    {
+        return users.Select(e => e.ToDto());
+    }
+
+    public static UserWithCartReturn ToUserWithCartDto(this User user)
+    {
+        return new UserWithCartReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Cart.ToDto());
     }
 
     #endregion

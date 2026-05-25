@@ -8,5 +8,5 @@ then
 fi
 
 echo "Making migration $1..."
-exec dotnet ef migrations add $1 --project idobrin-aspnet-dal --startup-project idobrin-aspnet-api
+exec dotnet ef migrations add $1 -p idobrin-aspnet-dal -s idobrin-aspnet-api
 exit 0

@@ -1,5 +1,6 @@
 using aspnet_domain.Interfaces;
 using idobrin_aspnet_logic.DTOs;
+using idobrin_aspnet_logic.DTOs.Cart;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
 

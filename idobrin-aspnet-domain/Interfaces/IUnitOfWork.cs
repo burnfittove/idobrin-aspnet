@@ -38,6 +38,11 @@ public interface IUnitOfWork : IDisposable
     ICartRepository CartRepository { get; }
     
     /// <summary>
+    /// CartItems repository.
+    /// </summary>
+    ICartItemsRepository CartItemsRepository { get; }
+    
+    /// <summary>
     /// Saves all changes in the database. If one change fail, all others fail as well.
     /// </summary>
     /// <returns>int &#8212; The number of saved changes.</returns>

@@ -12,8 +12,8 @@ using idobrin_aspnet_dal.Configs;
 namespace idobrin_aspnet_dal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260520150850_Changes")]
-    partial class Changes
+    [Migration("20260525155511_InitialMigrationToStaging3")]
+    partial class InitialMigrationToStaging3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,7 @@ namespace idobrin_aspnet_dal.Migrations
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("UserId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -44,30 +45,22 @@ namespace idobrin_aspnet_dal.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Cart");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.CartItem", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<int?>("CartId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ItemId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CartId");
+                    b.HasKey("CartId", "ItemId");
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("CartItem");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Category", b =>
@@ -143,7 +136,7 @@ namespace idobrin_aspnet_dal.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Item");
+                    b.ToTable("Items", (string)null);
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Municipality", b =>
@@ -226,7 +219,9 @@ namespace idobrin_aspnet_dal.Migrations
                 {
                     b.HasOne("aspnet_domain.Entities.User", "User")
                         .WithOne("Cart")
-                        .HasForeignKey("aspnet_domain.Entities.Cart", "UserId");
+                        .HasForeignKey("aspnet_domain.Entities.Cart", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -235,11 +230,15 @@ namespace idobrin_aspnet_dal.Migrations
                 {
                     b.HasOne("aspnet_domain.Entities.Cart", "Cart")
                         .WithMany("CartItems")
-                        .HasForeignKey("CartId");
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("aspnet_domain.Entities.Item", "Item")
                         .WithMany("CartItems")
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cart");
 
@@ -268,7 +267,7 @@ namespace idobrin_aspnet_dal.Migrations
             modelBuilder.Entity("aspnet_domain.Entities.Item", b =>
                 {
                     b.HasOne("aspnet_domain.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("Items")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -310,6 +309,8 @@ namespace idobrin_aspnet_dal.Migrations
             modelBuilder.Entity("aspnet_domain.Entities.Product", b =>
                 {
                     b.Navigation("CategoryProducts");
+
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>

@@ -1,5 +1,4 @@
 using aspnet_domain.Interfaces;
-using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
@@ -16,9 +15,35 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return entity.ToDto();
     }
 
-    public async Task<CartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<UserReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default)
     {
-        var entity = await _unitOfWork.CartRepository.ReturnUsersCartAsync(id, cancellationToken);
-        return entity.ToDto();
+        var entities = await _unitOfWork.UserRepository.ReturnAllAsync(cancellationToken);
+        return entities.ToDtoList();
+    }
+
+    public async Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default)
+    {
+        return await  _unitOfWork.UserRepository.ExistsAsync(id, cancellationToken);
+    }
+
+    public async Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var entity = await _unitOfWork.UserRepository.ReturnUserWithCartById(id, cancellationToken);
+        return entity.Cart == null ? null : entity.ToUserWithCartDto();
+    }
+
+    public async Task<bool> AddItemToCart(int id, int productId, int quantity, CancellationToken cancellationToken)
+    {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        
+        var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
+        if (product == null) return false;
+        
+        var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(id, cancellationToken);
+        if (cart == null) return false;
+        
+        await _unitOfWork.CartItemsRepository.AddItemToCartAsync(product, cart, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }

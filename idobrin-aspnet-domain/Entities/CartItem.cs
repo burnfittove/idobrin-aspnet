@@ -1,6 +1,6 @@
 namespace aspnet_domain.Entities;
 
-public class CartItem : Base
+public class CartItem
 {
     public int? CartId { get; set; }
     public virtual Cart? Cart { get; set; } = new();

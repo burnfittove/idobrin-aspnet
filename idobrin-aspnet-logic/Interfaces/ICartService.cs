@@ -9,5 +9,5 @@ public interface ICartService
     /// </summary>
     /// <param name="id">Entity ID.</param>
     /// <returns>Entity.</returns>
-    Task<CartReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default);
+    // Task<CartReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default);
 }
