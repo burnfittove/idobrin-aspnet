@@ -44,5 +44,6 @@ public class UserController(IUserService userService) : ControllerBase
         CancellationToken cancellationToken = default)
     {
         var result = await _userService.AddItemToCart(id, productId, quantity, cancellationToken);
+        return result ? Ok() : NotFound();
     }
 }

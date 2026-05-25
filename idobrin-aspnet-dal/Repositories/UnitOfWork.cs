@@ -3,7 +3,7 @@ using idobrin_aspnet_dal.Configs;
 
 namespace idobrin_aspnet_dal.Repositories;
 
-public class UnitOfWork(DatabaseContext context) : IUnitOfWork
+public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
 {
     private ICountryRepository? _countryRepo;
     private IMunicipalityRepository? _municipalityRepo;
@@ -13,6 +13,7 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private IUserRepository? _userRepo;
     private ICartRepository? _cartRepo;
     private ICartItemsRepository? _cartItemsRepo;
+    private IItemRepository? _itemRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
@@ -23,6 +24,7 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public IUserRepository UserRepository => _userRepo ??= new UserRepository(context);
     public ICartRepository CartRepository =>  _cartRepo ??= new CartRepository(context);
     public ICartItemsRepository CartItemsRepository => _cartItemsRepo ??= new CartItemsRepository(context);
+    public IItemRepository ItemRepository => _itemRepo ??= new ItemRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -35,7 +37,7 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
         GC.SuppressFinalize(this);
     }
 
-    protected virtual void InvokeDispose()
+    private void InvokeDispose()
     {
         // Return if dispose has already been called
         if (disposed) return;

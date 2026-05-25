@@ -20,4 +20,16 @@ public class ItemRepository(DatabaseContext context) : BaseRepository<Item>(cont
             .Include(e => e.Product)
             .ToListAsync(cancellationToken);
     }
+
+    public virtual async Task<Item> CreateItemAsync(Product product, int quantity, CancellationToken cancellationToken = default)
+    {
+        var entity = new Item
+        {
+            ProductId = product.Id,
+            Quantity = quantity,
+            TotalPrice = product.Price * quantity
+        };
+        await DbSet.AddAsync(entity, cancellationToken);
+        return entity;
+    }
 }

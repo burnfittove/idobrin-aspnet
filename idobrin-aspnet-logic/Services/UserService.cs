@@ -36,13 +36,20 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
     {
         if (!await ExistsAsync(id, cancellationToken)) return false;
         
+        // Check if product exists
         var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
         if (product == null) return false;
         
+        // Check if cart exists
         var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(id, cancellationToken);
         if (cart == null) return false;
         
-        await _unitOfWork.CartItemsRepository.AddItemToCartAsync(product, cart, cancellationToken);
+        // Check if item was successfully created
+        var item = await _unitOfWork.ItemRepository.CreateItemAsync(product, quantity, cancellationToken);
+        if (item == null ) return false;
+        
+        // Put the item in the cart
+        await _unitOfWork.CartItemsRepository.AddItemToCartAsync(cart, item, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
