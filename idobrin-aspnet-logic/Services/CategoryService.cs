@@ -1,9 +1,7 @@
 using aspnet_domain.Interfaces;
-using idobrin_aspnet_dal.Migrations;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
-using CategoryUpdate = idobrin_aspnet_dal.Migrations.CategoryUpdate;
 
 namespace idobrin_aspnet_logic.Services;
 
@@ -68,15 +66,5 @@ public class CategoryService(IUnitOfWork unitOfWork) : ICategoryService
     public async Task<IEnumerable<CategoryWithProductsReturn>> ReturnAllCategoryWithProductsAsync(CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
-    }
-
-    public async Task<bool> AddProductToCategoryAsync(int categoryId, int productId, CancellationToken cancellationToken = default)
-    {
-        if (!await ExistsAsync(categoryId, cancellationToken)) return false;
-        if (!await _unitOfWork.ProductRepository.ExistsAsync(productId, cancellationToken)) return false;
-        
-        _unitOfWork.CategoryProductsRepository.AddProductToCategoryAsync(categoryId, productId, cancellationToken);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return true;
     }
 }

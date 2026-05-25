@@ -62,7 +62,34 @@ public class ProductController(IProductService productService) : ControllerBase
     {
         if (id != product.id) return BadRequest("ID mismatch");
         
-        var entity = await _productService.UpdateAsync(id, product, cancellationToken);
-        return entity == null ? NotFound() : Ok(entity);
+        var result = await _productService.UpdateAsync(id, product, cancellationToken);
+        return result == null ? NotFound() : Ok(result);
+    }
+
+    [HttpPatch("{id:int}/addCategory")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> AddCategory(int id, [FromQuery] int categoryId,
+        CancellationToken cancellationToken = default)
+    {
+        if (categoryId == null) return BadRequest("No category provided.");
+        if (!await _productService.ExistsAsync(id, cancellationToken)) return NotFound("No product with that ID");
+
+        var result = await _productService.AddCategory(id, categoryId, cancellationToken);
+        return result == null ? NotFound("Product or category ID not found.") : Ok(result);
+    }
+    
+    [HttpPatch("{id:int}/removeCategory")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> RemoveCategory(int id, [FromQuery] int categoryId,
+        CancellationToken cancellationToken = default)
+    {
+        if (categoryId == null) return BadRequest("No category provided.");
+
+        var result = await _productService.RemoveCategory(id, categoryId, cancellationToken);
+        return result == null ? NotFound("No product with that ID") : Ok(result);
     }
 }

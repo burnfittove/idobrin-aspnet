@@ -1,5 +1,4 @@
 using aspnet_domain.Interfaces;
-using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Products;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
@@ -51,6 +50,7 @@ public class ProductService(IUnitOfWork unitOfWork) : IProductService
         var entity = await _unitOfWork.ProductRepository.ReturnByIdAsync(id, cancellationToken);
         if (entity == null) return false;
         
+        // Change basic attributes
         entity.Name = product.Name;
         entity.Price = product.Price;
         await _unitOfWork.ProductRepository.UpdateAsync(entity, cancellationToken);
@@ -62,5 +62,35 @@ public class ProductService(IUnitOfWork unitOfWork) : IProductService
     {
         var entity = await _unitOfWork.ProductRepository.ReturnProductWithCategoriesAsync(id, cancellationToken);
         return entity.ToProductWithCategoriesDto();
+    }
+
+    public async Task<bool> AddCategory(int id, int categoryId, CancellationToken cancellationToken)
+    {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        
+        var category = await _unitOfWork.CategoryRepository.ReturnByIdAsync(categoryId, cancellationToken);
+        if (category == null) return false;
+        
+        var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(id, cancellationToken);
+        if (product == null) return false;
+        
+        await _unitOfWork.CategoryProductsRepository.AddProductToCategoryAsync(category, product, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public async Task<bool> RemoveCategory(int id, int categoryId, CancellationToken cancellationToken)
+    {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        
+        var category = await _unitOfWork.CategoryRepository.ReturnByIdAsync(categoryId, cancellationToken);
+        if (category == null) return false;
+        
+        var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(id, cancellationToken);
+        if (product == null) return false;
+        
+        await _unitOfWork.CategoryProductsRepository.RemoveProductFromCategory(category, product, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }

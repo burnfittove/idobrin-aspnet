@@ -54,4 +54,8 @@ public interface IProductService
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     Task<ProductWithCategoriesReturn?> ReturnProductWithCategoriesAsync(int id, CancellationToken cancellationToken = default);
+
+    Task<bool> AddCategory(int id, int categoryId, CancellationToken cancellationToken);
+    
+    Task<bool> RemoveCategory(int id, int categoryId, CancellationToken cancellationToken);
 }

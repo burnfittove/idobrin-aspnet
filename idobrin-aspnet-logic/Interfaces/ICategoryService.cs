@@ -61,6 +61,4 @@ public interface ICategoryService
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     Task<IEnumerable<CategoryWithProductsReturn>> ReturnAllCategoryWithProductsAsync(CancellationToken cancellationToken = default);
-    
-    Task<bool> AddProductToCategoryAsync(int categoryId, int productId, CancellationToken cancellationToken = default);
 }

@@ -71,16 +71,4 @@ public class CategoryController(ICategoryService categoryService) : ControllerBa
         var result = await _categoryService.UpdateAsync(id, category, cancellationToken);
         return result ? NoContent() : NotFound();
     }
-
-    [HttpPatch("{id:int}")]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> AddProductToCategory(int id, [FromQuery] int productId,
-        CancellationToken cancellationToken = default)
-    {
-        var result = await _categoryService.AddProductToCategoryAsync(id, productId, cancellationToken);
-        
-        return result ? NoContent() : BadRequest("Category or product ID not found");
-    }
 }
