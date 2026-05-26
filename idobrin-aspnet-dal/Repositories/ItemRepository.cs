@@ -21,15 +21,23 @@ public class ItemRepository(DatabaseContext context) : BaseRepository<Item>(cont
             .ToListAsync(cancellationToken);
     }
 
-    public virtual async Task<Item> CreateItemAsync(Product product, int quantity, CancellationToken cancellationToken = default)
+    public async Task<Item> CreateItemAsync(Product product, int quantity, CancellationToken cancellationToken = default)
     {
+        Console.WriteLine($"ItemRepository | ProductID: {product.Id}");
+        Console.WriteLine($"ItemRepository | Quantity: {quantity}");
+        Console.WriteLine($"ItemRepository | TotalPrice: {product.Price * quantity}");
+        
         var entity = new Item
         {
             ProductId = product.Id,
             Quantity = quantity,
             TotalPrice = product.Price * quantity
         };
+        Console.WriteLine($"ItemRepository | item's product id: {entity.ProductId}");
         await DbSet.AddAsync(entity, cancellationToken);
+        Console.WriteLine($"ItemRepository | item's product id: {entity.ProductId}");
+        Console.WriteLine($"ItemRepository | item's quantity: {entity.Quantity}");
+        Console.WriteLine($"ItemRepository | item's price: {entity.TotalPrice}");
         return entity;
     }
 }

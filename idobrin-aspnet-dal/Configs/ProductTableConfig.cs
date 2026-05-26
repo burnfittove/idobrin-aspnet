@@ -14,5 +14,10 @@ public class ProductTableConfig : IEntityTypeConfiguration<Product>
 
         builder.Property(e => e.Name).IsUnicode().IsRequired();
         builder.Property(e => e.Price).IsRequired();
+        
+        builder
+            .HasMany(e => e.Items)
+            .WithOne(e => e.Product)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
