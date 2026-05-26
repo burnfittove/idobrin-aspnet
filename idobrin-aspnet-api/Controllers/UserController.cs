@@ -34,16 +34,16 @@ public class UserController(IUserService userService) : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserWithCartReturn>> ReturnCartAsync(int id, CancellationToken cancellationToken = default)
     {
-        var entity = await _userService.ReturnCartByIdAsync(id, cancellationToken);
-        return entity == null? NotFound() : Ok(entity);
+        var entity = await _userService.ReturnCartByIdAsync(id, cancellationToken)!;
+        return Ok(entity);
     }
 
     [HttpPut("{id:int}/cart")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> AddItemToCartAsync(int id, [FromQuery] int productId, [FromQuery] int quantity,
+    public async Task<IActionResult> AddProductToCartAsync(int id, [FromQuery] int productId, [FromQuery] int quantity,
         CancellationToken cancellationToken = default)
     {
-        var result = await _userService.AddItemToCart(id, productId, quantity, cancellationToken);
+        var result = await _userService.AddProductToCart(id, productId, quantity, cancellationToken);
         return result ? Ok() : NotFound();
     }
 }

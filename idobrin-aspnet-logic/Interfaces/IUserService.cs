@@ -16,6 +16,6 @@ public interface IUserService
     
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
     
-    Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default);
-    Task<bool> AddItemToCart(int id, int productId, int quantity, CancellationToken cancellationToken);
+    Task<UserWithCartReturn?> ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<bool> AddProductToCart(int id, int productId, int quantity, CancellationToken cancellationToken);
 }

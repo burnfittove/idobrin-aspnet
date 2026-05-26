@@ -106,35 +106,11 @@ public static class Dto2EntityMapping
     }
     #endregion
 
-    #region Item
-    
-    public static ItemReturn ToDto(this Item item)
-    {
-        return new ItemReturn(item.Id, item.Quantity, item.TotalPrice, item.Product.ToDto());
-    }
-    
-    public static IEnumerable<ItemReturn> ToDtoList(this IEnumerable<Item> items)
-    {
-        return items.Select(e => e.ToDto());
-    }
-
-    public static Item ToEntity(this ItemCreate item)
-    {
-        return new Item
-        {
-            ProductId = item.ProductId,
-            Quantity = item.quantity,
-            TotalPrice = item.TotalPrice
-        };
-    }
-    
-    #endregion
-
     #region Cart
     
     public static CartReturn ToDto(this Cart cart)
     {
-        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item.ToDto()));
+        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartProducts?.Select(e => e?.Product.ToDto()));
     }
     
     #endregion
@@ -153,7 +129,22 @@ public static class Dto2EntityMapping
 
     public static UserWithCartReturn ToUserWithCartDto(this User user)
     {
-        return new UserWithCartReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Cart.ToDto());
+        return new UserWithCartReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Cart?.ToDto());
+    }
+
+    #endregion
+
+    #region CartProduct
+
+    public static CartProducts DtoToEntity(this CartProductsCreate cartProducts)
+    {
+        return new CartProducts
+        {
+            CartId = cartProducts.CartId,
+            ProductId = cartProducts.ProductId,
+            Quantity = cartProducts.Quantity,
+            TotalPrice = cartProducts.TotalPrice
+        };
     }
 
     #endregion

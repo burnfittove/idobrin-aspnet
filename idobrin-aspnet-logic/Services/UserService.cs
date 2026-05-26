@@ -1,4 +1,5 @@
 using aspnet_domain.Interfaces;
+using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
@@ -27,31 +28,47 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return await  _unitOfWork.UserRepository.ExistsAsync(id, cancellationToken);
     }
 
-    public async Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default)
+    public async Task<UserWithCartReturn?> ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.UserRepository.ReturnUserWithCartById(id, cancellationToken);
         return entity.Cart == null ? null : entity.ToUserWithCartDto();
     }
 
-    public async Task<bool> AddItemToCart(int id, int productId, int quantity, CancellationToken cancellationToken)
+    public async Task<bool> AddProductToCart(int id, int productId, int quantity, CancellationToken cancellationToken)
     {
+        // Check if user exists
         if (!await ExistsAsync(id, cancellationToken)) return false;
         
-        // Return a product and check if it exists
+        // Get user's cart and check if it exists
+        var cart = await ReturnCartByIdAsync(id, cancellationToken);
+        if (cart == null) return false;
+        
+        // Get product and check if it exists
         var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
         if (product == null) return false;
         
-        // Check if cart exists
-        var cartDto = await ReturnCartByIdAsync(id, cancellationToken);
-        var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(cartDto.Id, cancellationToken);
-        if (cart == null) return false;
-
-        var itemEntity = new ItemCreate(product.Id, quantity, product.Price * quantity);
-        
-        // Check if item was successfully created
-        var item = await _unitOfWork.ItemRepository.CreateAsync(itemEntity.ToEntity(), cancellationToken);
-        if (item == null) return false;
+        // Put into CartProducts table along with quantity
+        var cartProductsDto = new CartProductsCreate(cart.Id, product.Id, quantity, product.Price * quantity);
+        var entityToCreate = cartProductsDto.DtoToEntity();
+        var entity = await _unitOfWork.CartProductsRepository.CreateCartProductsAsync(entityToCreate, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+        
+        // // Return a product and check if it exists
+        // var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
+        // if (product == null) return false;
+        //
+        // // Check if cart exists
+        // var cartDto = await ReturnCartByIdAsync(id, cancellationToken);
+        // var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(cartDto.Id, cancellationToken);
+        // if (cart == null) return false;
+        //
+        // var itemEntity = new ItemCreate(product.Id, quantity, product.Price * quantity);
+        //
+        // // Check if item was successfully created
+        // var item = await _unitOfWork.ItemRepository.CreateAsync(itemEntity.ToEntity(), cancellationToken);
+        // if (item == null) return false;
+        // await _unitOfWork.SaveChangesAsync(cancellationToken);
         //
         // Console.WriteLine($"UserService | item product id: {item.ProductId}");
         // Console.WriteLine($"UserService | item quantity: {item.Quantity}");
@@ -59,6 +76,5 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         // // Put the item in the cart
         // // await _unitOfWork.CartItemsRepository.AddItemToCartAsync(cart, item, cancellationToken);
         // await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return true;
     }
 }

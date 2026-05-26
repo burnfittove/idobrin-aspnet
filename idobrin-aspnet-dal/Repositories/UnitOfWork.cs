@@ -2,7 +2,6 @@ using aspnet_domain.Interfaces;
 using idobrin_aspnet_dal.Configs;
 
 namespace idobrin_aspnet_dal.Repositories;
-
 public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
 {
     private ICountryRepository? _countryRepo;
@@ -12,8 +11,7 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private ICategoryProductsRepository? _categoryProductsRepo;
     private IUserRepository? _userRepo;
     private ICartRepository? _cartRepo;
-    private ICartItemsRepository? _cartItemsRepo;
-    private IItemRepository? _itemRepo;
+    private ICartProductsRepository? _cartProductsRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
@@ -23,8 +21,7 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public ICategoryProductsRepository CategoryProductsRepository =>  _categoryProductsRepo ??= new CategoryProductsRepository(context);
     public IUserRepository UserRepository => _userRepo ??= new UserRepository(context);
     public ICartRepository CartRepository =>  _cartRepo ??= new CartRepository(context);
-    public ICartItemsRepository CartItemsRepository => _cartItemsRepo ??= new CartItemsRepository(context);
-    public IItemRepository ItemRepository => _itemRepo ??= new ItemRepository(context);
+    public ICartProductsRepository CartProductsRepository => _cartProductsRepo ??= new CartProductsRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

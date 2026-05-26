@@ -11,10 +11,5 @@ public class ProductTableConfig : IEntityTypeConfiguration<Product>
         builder.ToTable("Products");
         
         builder.HasKey(e => e.Id);
-        
-        builder
-            .HasMany(e => e.Items)
-            .WithOne(e => e.Product)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }
