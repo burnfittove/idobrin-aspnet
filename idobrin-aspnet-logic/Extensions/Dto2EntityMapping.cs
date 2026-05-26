@@ -117,6 +117,16 @@ public static class Dto2EntityMapping
     {
         return items.Select(e => e.ToDto());
     }
+
+    public static Item ToEntity(this ItemCreate item)
+    {
+        return new Item
+        {
+            ProductId = item.ProductId,
+            Quantity = item.quantity,
+            TotalPrice = item.TotalPrice
+        };
+    }
     
     #endregion
 
