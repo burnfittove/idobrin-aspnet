@@ -1,5 +1,6 @@
 using aspnet_domain.Entities;
 using idobrin_aspnet_logic.DTOs;
+using idobrin_aspnet_logic.DTOs.Address;
 using idobrin_aspnet_logic.DTOs.Cart;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
@@ -154,6 +155,20 @@ public static class Dto2EntityMapping
     public static UserWithCartReturn ToUserWithCartDto(this User user)
     {
         return new UserWithCartReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Cart.ToDto());
+    }
+
+    #endregion
+
+    #region Address
+
+    public static AddressReturn ToDto(this Address address)
+    {
+        return new AddressReturn(address.Id, address.AddressLine, address.PostalCode, address.MunicipalityId);
+    }
+
+    public static IEnumerable<AddressReturn> ToDtoList(this IEnumerable<Address> addresses)
+    {
+        return addresses.Select(e => e.ToDto());
     }
 
     #endregion

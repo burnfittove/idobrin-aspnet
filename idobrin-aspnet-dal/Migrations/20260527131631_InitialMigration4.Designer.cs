@@ -12,8 +12,8 @@ using idobrin_aspnet_dal.Configs;
 namespace idobrin_aspnet_dal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260526113030_ProductTestRemovedRequirements")]
-    partial class ProductTestRemovedRequirements
+    [Migration("20260527131631_InitialMigration4")]
+    partial class InitialMigration4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

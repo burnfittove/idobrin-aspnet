@@ -47,6 +47,11 @@ public interface IUnitOfWork : IDisposable
     /// </summary>
     IItemRepository ItemRepository { get; }
     
+    // <summary>
+    /// Items repository.
+    /// </summary>
+    IAddressRepository AddressRepository { get; }
+    
     /// <summary>
     /// Saves all changes in the database. If one change fail, all others fail as well.
     /// </summary>

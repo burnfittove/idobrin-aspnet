@@ -12,8 +12,8 @@ using idobrin_aspnet_dal.Configs;
 namespace idobrin_aspnet_dal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260525155511_InitialMigrationToStaging3")]
-    partial class InitialMigrationToStaging3
+    [Migration("20260530201632_AddedAddresses")]
+    partial class AddedAddresses
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,38 @@ namespace idobrin_aspnet_dal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("aspnet_domain.Entities.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AddressLine")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("MunicipalityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MunicipalityId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Addresses", (string)null);
+                });
 
             modelBuilder.Entity("aspnet_domain.Entities.Cart", b =>
                 {
@@ -129,8 +161,8 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(65,30)");
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -173,7 +205,6 @@ namespace idobrin_aspnet_dal.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .IsUnicode(true)
                         .HasColumnType("longtext");
 
                     b.Property<float>("Price")
@@ -213,6 +244,25 @@ namespace idobrin_aspnet_dal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Address", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Municipality", "Municipality")
+                        .WithMany("Addresses")
+                        .HasForeignKey("MunicipalityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("aspnet_domain.Entities.User", "User")
+                        .WithOne("Address")
+                        .HasForeignKey("aspnet_domain.Entities.Address", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Municipality");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Cart", b =>
@@ -306,6 +356,11 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("CartItems");
                 });
 
+            modelBuilder.Entity("aspnet_domain.Entities.Municipality", b =>
+                {
+                    b.Navigation("Addresses");
+                });
+
             modelBuilder.Entity("aspnet_domain.Entities.Product", b =>
                 {
                     b.Navigation("CategoryProducts");
@@ -315,6 +370,8 @@ namespace idobrin_aspnet_dal.Migrations
 
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>
                 {
+                    b.Navigation("Address");
+
                     b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618

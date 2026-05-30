@@ -33,32 +33,27 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return entity.Cart == null ? null : entity.ToUserWithCartDto();
     }
 
-    public async Task<bool> AddItemToCart(int id, int productId, int quantity, CancellationToken cancellationToken)
+    public async Task<bool> AddItemToCart(int userId, int productId, int quantity, CancellationToken cancellationToken)
     {
-        if (!await ExistsAsync(id, cancellationToken)) return false;
+        // Check if user exists
+        if (!await ExistsAsync(userId, cancellationToken)) return false;
+        
+        // Check if user's cart exists
+        var cartDto = await ReturnCartByIdAsync(userId, cancellationToken);
+        var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(cartDto.Id, cancellationToken);
+        if (cart == null) return false;
         
         // Return a product and check if it exists
         var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
         if (product == null) return false;
         
-        // Check if cart exists
-        var cartDto = await ReturnCartByIdAsync(id, cancellationToken);
-        var cart = await _unitOfWork.CartRepository.ReturnByIdAsync(cartDto.Id, cancellationToken);
-        if (cart == null) return false;
-
-        var itemEntity = new ItemCreate(product.Id, quantity, product.Price * quantity);
+        // Create item and check if it was successfully created
+        var itemEntity = await _unitOfWork.ItemRepository.CreateItemAsync(product, quantity, cancellationToken);
+        if (itemEntity == null) return false;
         
-        // Check if item was successfully created
-        var item = await _unitOfWork.ItemRepository.CreateAsync(itemEntity.ToEntity(), cancellationToken);
-        if (item == null) return false;
+        // Create the cart<->item pairing
+        await _unitOfWork.CartItemsRepository.AddItemToCartAsync(cart, itemEntity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        //
-        // Console.WriteLine($"UserService | item product id: {item.ProductId}");
-        // Console.WriteLine($"UserService | item quantity: {item.Quantity}");
-        //
-        // // Put the item in the cart
-        // // await _unitOfWork.CartItemsRepository.AddItemToCartAsync(cart, item, cancellationToken);
-        // await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
 }

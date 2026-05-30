@@ -30,14 +30,11 @@ public class ItemRepository(DatabaseContext context) : BaseRepository<Item>(cont
         var entity = new Item
         {
             ProductId = product.Id,
+            Product =  product,
             Quantity = quantity,
             TotalPrice = product.Price * quantity
         };
-        Console.WriteLine($"ItemRepository | item's product id: {entity.ProductId}");
-        await DbSet.AddAsync(entity, cancellationToken);
-        Console.WriteLine($"ItemRepository | item's product id: {entity.ProductId}");
-        Console.WriteLine($"ItemRepository | item's quantity: {entity.Quantity}");
-        Console.WriteLine($"ItemRepository | item's price: {entity.TotalPrice}");
-        return entity;
+        var returnEnt = await CreateAsync(entity, cancellationToken);
+        return returnEnt;
     }
 }

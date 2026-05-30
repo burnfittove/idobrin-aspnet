@@ -11,6 +11,9 @@ public class UserRepository(DatabaseContext context) : BaseRepository<User>(cont
     {
         return await DbSet
             .Include(e => e.Cart)
+            .ThenInclude(e => e.CartItems)
+            .ThenInclude(e => e.Item)
+            .ThenInclude(e => e.Product)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
     }
 }

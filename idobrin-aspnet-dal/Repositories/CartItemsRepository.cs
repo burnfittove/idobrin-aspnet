@@ -49,7 +49,9 @@ public class CartItemsRepository(DatabaseContext context) : ICartItemsRepository
         var entity = new CartItem()
         {
             CartId = cart.Id,
+            Cart = cart,
             ItemId = item.Id,
+            Item = item
         };
         await DbSet.AddAsync(entity, cancellationToken);
         return entity;
