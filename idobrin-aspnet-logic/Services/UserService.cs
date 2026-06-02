@@ -56,4 +56,13 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
+
+    public async Task<UserWithWishlistReturn?> ReturnWishlistById(int id, CancellationToken cancellationToken)
+    {
+        // Check if user exists
+        if (!await ExistsAsync(id, cancellationToken)) return null;
+        
+        var entity = await _unitOfWork.UserRepository.ReturnUserWithWishlistById(id, cancellationToken);
+        return entity.ToUserWithWishlistDto();
+    }
 }

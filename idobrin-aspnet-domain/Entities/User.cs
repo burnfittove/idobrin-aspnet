@@ -7,5 +7,6 @@ public class User : Base
     public string? PhoneNumber { get; set; }
     public string Email { get; set; } = "";
     public virtual Cart? Cart { get; set; }
+    public virtual Wishlist? Wishlist { get; set; }
     public virtual Address? Address { get; set; }
 }

@@ -8,6 +8,7 @@ using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.DTOs.Products;
 using idobrin_aspnet_logic.DTOs.User;
+using idobrin_aspnet_logic.DTOs.Wishlist;
 
 namespace idobrin_aspnet_logic.Extensions;
 
@@ -135,7 +136,7 @@ public static class Dto2EntityMapping
     
     public static CartReturn ToDto(this Cart cart)
     {
-        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item.ToDto()));
+        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item?.ToDto()));
     }
     
     #endregion
@@ -154,7 +155,12 @@ public static class Dto2EntityMapping
 
     public static UserWithCartReturn ToUserWithCartDto(this User user)
     {
-        return new UserWithCartReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Cart.ToDto());
+        return new UserWithCartReturn(user.Id, user.Cart?.ToDto());
+    }
+
+    public static UserWithWishlistReturn ToUserWithWishlistDto(this User user)
+    {
+        return new UserWithWishlistReturn(user.Id, user.Wishlist?.ToDto());
     }
 
     #endregion
@@ -169,6 +175,15 @@ public static class Dto2EntityMapping
     public static IEnumerable<AddressReturn> ToDtoList(this IEnumerable<Address> addresses)
     {
         return addresses.Select(e => e.ToDto());
+    }
+
+    #endregion
+
+    #region Wishlist
+
+    public static WishlistReturn ToDto(this Wishlist wishlist)
+    {
+        return new WishlistReturn(wishlist.Id, wishlist.WishlistProducts.Select(e => e.Product.ToDto()));
     }
 
     #endregion

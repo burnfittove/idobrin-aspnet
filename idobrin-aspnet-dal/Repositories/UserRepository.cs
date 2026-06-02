@@ -16,4 +16,13 @@ public class UserRepository(DatabaseContext context) : BaseRepository<User>(cont
             .ThenInclude(e => e.Product)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
     }
+
+    public async Task<User> ReturnUserWithWishlistById(int id, CancellationToken cancellationToken)
+    {
+        return await DbSet
+            .Include(e => e.Wishlist)
+            .ThenInclude(e => e.WishlistProducts)
+            .ThenInclude(e => e.Product)
+            .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+    }
 }

@@ -18,4 +18,6 @@ public interface IUserService
     
     Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default);
     Task<bool> AddItemToCart(int userId, int productId, int quantity, CancellationToken cancellationToken);
+    
+    Task<UserWithWishlistReturn?> ReturnWishlistById(int id, CancellationToken cancellationToken);
 }

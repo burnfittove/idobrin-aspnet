@@ -46,4 +46,14 @@ public class UserController(IUserService userService) : ControllerBase
         var result = await _userService.AddItemToCart(id, productId, quantity, cancellationToken);
         return result ? Ok() : NotFound();
     }
+
+    [HttpGet("{id:int}/wishlist")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<UserWithWishlistReturn>> ReturnWishlistAsync(int id,
+        CancellationToken cancellationToken = default)
+    {
+        var entity = _userService.ReturnWishlistById(id, cancellationToken);
+        return entity == null? NotFound() : Ok(entity);
+    }
 }

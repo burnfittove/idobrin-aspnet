@@ -5,4 +5,5 @@ namespace aspnet_domain.Interfaces;
 public interface IUserRepository : IBaseRepository<User>
 {
     Task<User> ReturnUserWithCartById(int id, CancellationToken cancellationToken);
+    Task<User> ReturnUserWithWishlistById(int id, CancellationToken cancellationToken);
 }
