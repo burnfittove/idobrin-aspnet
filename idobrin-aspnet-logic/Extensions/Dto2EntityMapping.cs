@@ -183,7 +183,16 @@ public static class Dto2EntityMapping
 
     public static WishlistReturn ToDto(this Wishlist wishlist)
     {
-        return new WishlistReturn(wishlist.Id, wishlist.WishlistProducts.Select(e => e.Product.ToDto()));
+        return new WishlistReturn(wishlist.Id, wishlist.UserId, wishlist.WishlistProducts.Select(e => e.Product.ToDto()));
+    }
+
+    public static Wishlist ToEntity(this WishlistReturn wishlist)
+    {
+        return new Wishlist
+        {
+            Id = wishlist.Id,
+            UserId = wishlist.UserId
+        };
     }
 
     #endregion

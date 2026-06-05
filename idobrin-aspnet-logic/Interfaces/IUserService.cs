@@ -20,4 +20,5 @@ public interface IUserService
     Task<bool> AddItemToCart(int userId, int productId, int quantity, CancellationToken cancellationToken);
     
     Task<UserWithWishlistReturn?> ReturnWishlistById(int id, CancellationToken cancellationToken);
+    Task<bool> AddProductToWishlist(int id, int productId, CancellationToken cancellationToken);
 }

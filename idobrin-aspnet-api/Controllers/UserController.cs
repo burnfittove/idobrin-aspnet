@@ -1,4 +1,3 @@
-using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +28,8 @@ public class UserController(IUserService userService) : ControllerBase
         return entities == null? NotFound() : Ok(entities);
     }
 
+    #region Cart
+    
     [HttpGet("{id:int}/cart")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -40,20 +41,39 @@ public class UserController(IUserService userService) : ControllerBase
 
     [HttpPut("{id:int}/cart")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> AddItemToCartAsync(int id, [FromQuery] int productId, [FromQuery] int quantity,
         CancellationToken cancellationToken = default)
     {
         var result = await _userService.AddItemToCart(id, productId, quantity, cancellationToken);
-        return result ? Ok() : NotFound();
+        return result ? Ok(result) : BadRequest(result);
     }
+    
+    #endregion
 
+    
+    
+    #region Wishlist
+    
     [HttpGet("{id:int}/wishlist")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserWithWishlistReturn>> ReturnWishlistAsync(int id,
         CancellationToken cancellationToken = default)
     {
-        var entity = _userService.ReturnWishlistById(id, cancellationToken);
+        var entity = await _userService.ReturnWishlistById(id, cancellationToken);
         return entity == null? NotFound() : Ok(entity);
     }
+
+    [HttpPut("{id:int}/wishlist")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> AddItemToWishlistAsync(int id, [FromQuery] int productId,
+        CancellationToken cancellationToken = default)
+    {
+        var result = await _userService.AddProductToWishlist(id, productId, cancellationToken);
+        return result ? Ok(result) : BadRequest(result);
+    }
+    
+    #endregion
 }

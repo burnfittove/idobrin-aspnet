@@ -1,3 +1,4 @@
+using aspnet_domain.Entities;
 using aspnet_domain.Interfaces;
 using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.User;
@@ -30,7 +31,7 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
     public async Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.UserRepository.ReturnUserWithCartById(id, cancellationToken);
-        return entity.Cart == null ? null : entity.ToUserWithCartDto();
+        return entity == null ? null : entity.ToUserWithCartDto();
     }
 
     public async Task<bool> AddItemToCart(int userId, int productId, int quantity, CancellationToken cancellationToken)
@@ -64,5 +65,24 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         
         var entity = await _unitOfWork.UserRepository.ReturnUserWithWishlistById(id, cancellationToken);
         return entity.ToUserWithWishlistDto();
+    }
+
+    public async Task<bool> AddProductToWishlist(int id, int productId, CancellationToken cancellationToken)
+    {
+        // Check if user exists
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        
+        // Get product and check if it exists
+        var product = await _unitOfWork.ProductRepository.ReturnByIdAsync(productId, cancellationToken);
+        if (product == null) return false;
+        
+        // Get user's wishlist and check if it exists
+        var wishlist = await _unitOfWork.WishlistRepository.ReturnByIdAsync(id, cancellationToken);
+        if (wishlist == null) return false;
+        
+        // Create WishlistProducts
+        await _unitOfWork.WishlistProductsRepository.AddProductToWishlist(wishlist, product, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }

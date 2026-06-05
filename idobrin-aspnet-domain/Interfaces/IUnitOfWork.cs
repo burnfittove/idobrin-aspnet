@@ -28,7 +28,7 @@ public interface IUnitOfWork : IDisposable
     ICategoryProductsRepository CategoryProductsRepository { get; }
     
     /// <summary>
-    /// Cart repository.
+    /// User repository.
     /// </summary>
     IUserRepository UserRepository { get; }
     
@@ -47,10 +47,20 @@ public interface IUnitOfWork : IDisposable
     /// </summary>
     IItemRepository ItemRepository { get; }
     
-    // <summary>
-    /// Items repository.
+    /// <summary>
+    /// Address repository.
     /// </summary>
     IAddressRepository AddressRepository { get; }
+    
+    /// <summary>
+    /// Wishlist repository.
+    /// </summary>
+    IWishlistRepository WishlistRepository { get; }
+    
+    /// <summary>
+    /// WishlistProducts repository.
+    /// </summary>
+    IWishlistProductsRepository WishlistProductsRepository { get; }
     
     /// <summary>
     /// Saves all changes in the database. If one change fail, all others fail as well.

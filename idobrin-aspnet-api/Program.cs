@@ -20,6 +20,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
 // Register services
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IMunicipalityService, MunicipalityService>();
