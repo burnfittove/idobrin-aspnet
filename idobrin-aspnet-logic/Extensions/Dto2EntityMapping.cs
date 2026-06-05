@@ -138,6 +138,28 @@ public static class Dto2EntityMapping
     {
         return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item?.ToDto()));
     }
+
+    public static IEnumerable<CartReturn> ToDtoList(this IEnumerable<Cart> carts)
+    {
+        return carts.Select(e => e.ToDto());
+    }
+
+    public static Cart ToReturnEntity(this CartReturn cart)
+    {
+        return new Cart
+        {
+            UserId = cart.UserId,
+            TotalPrice = cart.TotalPrice,
+        };
+    }
+
+    public static Cart ToEntity(this CartCreate cart)
+    {
+        return new Cart()
+        {
+            UserId = cart.UserId
+        };
+    }
     
     #endregion
 

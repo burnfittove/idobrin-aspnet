@@ -15,10 +15,4 @@ public interface IUserService
     Task<IEnumerable<UserReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default);
     
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
-    
-    Task<UserWithCartReturn>? ReturnCartByIdAsync(int id, CancellationToken cancellationToken = default);
-    Task<bool> AddItemToCart(int userId, int productId, int quantity, CancellationToken cancellationToken);
-    
-    Task<UserWithWishlistReturn?> ReturnWishlistById(int id, CancellationToken cancellationToken);
-    Task<bool> AddProductToWishlist(int id, int productId, CancellationToken cancellationToken);
 }

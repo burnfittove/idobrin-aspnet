@@ -1,4 +1,4 @@
-using idobrin_aspnet_logic.DTOs;
+using idobrin_aspnet_logic.DTOs.Cart;
 
 namespace idobrin_aspnet_logic.Interfaces;
 
@@ -9,5 +9,10 @@ public interface ICartService
     /// </summary>
     /// <param name="id">Entity ID.</param>
     /// <returns>Entity.</returns>
-    // Task<CartReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<CartReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<CartReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default);
+
+    Task<CartReturn?> ReturnByUserIdAsync(int userId, CancellationToken cancellationToken = default);
+    Task<bool> AddItemToCartAsync(int cartId, int itemId, CancellationToken cancellationToken);
+    Task<CartReturn> CreateAsync(CartCreate cart, CancellationToken cancellationToken);
 }
