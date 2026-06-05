@@ -17,4 +17,11 @@ public class AddressController(IAddressService addressService) : ControllerBase
         var entities = await _addressService.ReturnAllAsync(cancellationToken);
         return entities == null ? NotFound() : Ok(entities);
     }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<AddressReturn>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var entity = await _addressService.ReturnByIdAsync(id, cancellationToken);
+        return entity == null ? NotFound() : Ok(entity);
+    }
 }
