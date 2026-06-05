@@ -12,6 +12,7 @@ public class ProductController(IProductService productService) : ControllerBase
 
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductReturn>> ReturnProduct(int id, CancellationToken cancellationToken)
     {
         var entity = await _productService.ReturnByIdAsync(id, cancellationToken);
@@ -20,6 +21,7 @@ public class ProductController(IProductService productService) : ControllerBase
 
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IEnumerable<ProductReturn>>> ReturnAllProducts(CancellationToken cancellationToken)
     {
         var entity = await _productService.ReturnAllAsync(cancellationToken);
@@ -28,6 +30,7 @@ public class ProductController(IProductService productService) : ControllerBase
 
     [HttpGet("{id:int}/categories")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductWithCategoriesReturn>> ReturnProductWithCategories(int id,
         CancellationToken cancellationToken = default)
     {
@@ -60,7 +63,7 @@ public class ProductController(IProductService productService) : ControllerBase
     public async Task<IActionResult> UpdateProduct(int id, ProductUpdate product,
         CancellationToken cancellationToken = default)
     {
-        if (id != product.id) return BadRequest("ID mismatch");
+        if (id != product.Id) return BadRequest("ID mismatch");
         
         var result = await _productService.UpdateAsync(id, product, cancellationToken);
         return result == null ? NotFound() : Ok(result);

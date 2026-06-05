@@ -15,4 +15,5 @@ public interface IUserService
     Task<IEnumerable<UserReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default);
     
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
+    Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
 }

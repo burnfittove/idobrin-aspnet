@@ -36,4 +36,13 @@ public class MunicipalityController(IMunicipalityService municipalityService) : 
         var entity = await _municipalityService.ReturnAllAsync(cancellationToken);
         return Ok(entity);
     }
+    
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    {
+        var result = await _municipalityService.DeleteAsync(id, cancellationToken);
+        return result ? NoContent() : NotFound(); 
+    }
 }

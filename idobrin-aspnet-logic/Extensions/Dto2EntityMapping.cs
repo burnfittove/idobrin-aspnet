@@ -199,6 +199,17 @@ public static class Dto2EntityMapping
         return addresses.Select(e => e.ToDto());
     }
 
+    public static Address ToEntity(this AddressCreate address)
+    {
+        return new Address
+        {
+            AddressLine = address.AddressLine,
+            PostalCode = address.PostalCode,
+            MunicipalityId = address.MunicipalityId,
+            UserId = address.UserId,
+        };
+    }
+
     #endregion
 
     #region Wishlist

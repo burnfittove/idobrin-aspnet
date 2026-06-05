@@ -50,4 +50,14 @@ public class CartService(IUnitOfWork unitOfWork) : ICartService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return entity.ToDto();
     }
+
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
+    {
+        var entity =  await _unitOfWork.CartRepository.ReturnByIdAsync(id, cancellationToken);
+        if (entity == null) return false;
+        
+        await _unitOfWork.CartRepository.DeleteAsync(entity, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 }

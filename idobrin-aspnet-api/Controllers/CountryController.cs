@@ -35,4 +35,13 @@ public class CountryController(ICountryService countryService) : ControllerBase
         var entity = await _countryService.ReturnAllAsync(cancellationToken);
         return Ok(entity);
     }
+    
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    {
+        var result = await _countryService.DeleteAsync(id, cancellationToken);
+        return result ? NoContent() : NotFound(); 
+    }
 }

@@ -25,4 +25,14 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
     {
         return await  _unitOfWork.UserRepository.ExistsAsync(id, cancellationToken);
     }
+
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
+    {
+        var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
+        if (entity == null) return false;
+        
+        await _unitOfWork.UserRepository.DeleteAsync(entity, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 }

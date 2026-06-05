@@ -47,4 +47,13 @@ public class CartController(ICartService cartService) : ControllerBase
         var result = await _cartService.AddItemToCartAsync(cartId, itemId, cancellationToken);
         return result ? BadRequest() : Ok(result);
     }
+    
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    {
+        var result = await _cartService.DeleteAsync(id, cancellationToken);
+        return result ? NoContent() : NotFound(); 
+    }
 }

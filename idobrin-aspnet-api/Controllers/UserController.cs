@@ -27,4 +27,13 @@ public class UserController(IUserService userService) : ControllerBase
         var entities = await _userService.ReturnAllAsync(cancellationToken);
         return entities == null? NotFound() : Ok(entities);
     }
+    
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    {
+        var result = await _userService.DeleteAsync(id, cancellationToken);
+        return result ? NoContent() : NotFound(); 
+    }
 }
