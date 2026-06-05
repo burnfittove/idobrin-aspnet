@@ -10,12 +10,19 @@ public class CartTableConfig : IEntityTypeConfiguration<Cart>
     {
         builder.ToTable("Carts");
         builder.HasKey(e => e.Id);
-        builder.Property(e => e.Id).IsRequired();
         builder.Property(e => e.UserId).IsRequired();
+        builder.Property(e => e.ItemId).IsRequired();
+        
         builder
             .HasOne(e => e.User)
-            .WithOne(e => e.Cart)
+            .WithOne(c => c.Cart)
             .HasForeignKey<Cart>(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder
+            .HasOne(e => e.Item)
+            .WithMany(e => e.Carts)
+            .HasForeignKey(e => e.ItemId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

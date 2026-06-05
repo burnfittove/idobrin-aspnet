@@ -12,11 +12,9 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private ICategoryProductsRepository? _categoryProductsRepo;
     private IUserRepository? _userRepo;
     private ICartRepository? _cartRepo;
-    private ICartItemsRepository? _cartItemsRepo;
     private IItemRepository? _itemRepo;
     private IAddressRepository? _addressRepo;
     private IWishlistRepository? _wishlistRepo;
-    private IWishlistProductsRepository? _wishlistProductsRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
@@ -26,11 +24,9 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public ICategoryProductsRepository CategoryProductsRepository =>  _categoryProductsRepo ??= new CategoryProductsRepository(context);
     public IUserRepository UserRepository => _userRepo ??= new UserRepository(context);
     public ICartRepository CartRepository =>  _cartRepo ??= new CartRepository(context);
-    public ICartItemsRepository CartItemsRepository => _cartItemsRepo ??= new CartItemsRepository(context);
     public IItemRepository ItemRepository => _itemRepo ??= new ItemRepository(context);
     public IAddressRepository AddressRepository => _addressRepo ??= new AddressRepository(context);
     public IWishlistRepository WishlistRepository => _wishlistRepo ??= new WishlistRepository(context);
-    public IWishlistProductsRepository WishlistProductsRepository => _wishlistProductsRepo ??= new WishlistProductsRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

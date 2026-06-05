@@ -6,5 +6,4 @@ public class Product : Base
     public float Price { get; set; }
     public virtual ICollection<CategoryProducts> CategoryProducts { get; set; }
     public virtual ICollection<Item?> Items { get; set; }
-    public virtual ICollection<WishlistProducts> WishlistProducts { get; set; }
 }

@@ -1,14 +1,11 @@
 using aspnet_domain.Entities;
-using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.Address;
-using idobrin_aspnet_logic.DTOs.Cart;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.DTOs.Products;
 using idobrin_aspnet_logic.DTOs.User;
-using idobrin_aspnet_logic.DTOs.Wishlist;
 
 namespace idobrin_aspnet_logic.Extensions;
 
@@ -132,15 +129,6 @@ public static class Dto2EntityMapping
     
     #endregion
 
-    #region Cart
-    
-    public static CartReturn ToDto(this Cart cart)
-    {
-        return new CartReturn(cart.Id, cart.TotalPrice, cart.UserId, cart.CartItems?.Select(e => e.Item?.ToDto()));
-    }
-    
-    #endregion
-
     #region User
 
     public static UserReturn ToDto(this User user)
@@ -151,16 +139,6 @@ public static class Dto2EntityMapping
     public static IEnumerable<UserReturn> ToDtoList(this IEnumerable<User> users)
     {
         return users.Select(e => e.ToDto());
-    }
-
-    public static UserWithCartReturn ToUserWithCartDto(this User user)
-    {
-        return new UserWithCartReturn(user.Id, user.Cart?.ToDto());
-    }
-
-    public static UserWithWishlistReturn ToUserWithWishlistDto(this User user)
-    {
-        return new UserWithWishlistReturn(user.Id, user.Wishlist?.ToDto());
     }
 
     #endregion
@@ -175,24 +153,6 @@ public static class Dto2EntityMapping
     public static IEnumerable<AddressReturn> ToDtoList(this IEnumerable<Address> addresses)
     {
         return addresses.Select(e => e.ToDto());
-    }
-
-    #endregion
-
-    #region Wishlist
-
-    public static WishlistReturn ToDto(this Wishlist wishlist)
-    {
-        return new WishlistReturn(wishlist.Id, wishlist.UserId, wishlist.WishlistProducts.Select(e => e.Product.ToDto()));
-    }
-
-    public static Wishlist ToEntity(this WishlistReturn wishlist)
-    {
-        return new Wishlist
-        {
-            Id = wishlist.Id,
-            UserId = wishlist.UserId
-        };
     }
 
     #endregion

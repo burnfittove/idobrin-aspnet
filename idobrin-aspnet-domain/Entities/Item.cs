@@ -6,5 +6,5 @@ public class Item : Base
     public float TotalPrice { get; set; }
     public int ProductId { get; set; }
     public Product Product { get; set; } = new();
-    public virtual ICollection<CartItem>? CartItems { get; set; }
+    public virtual ICollection<Cart>? Carts { get; set; }
 }
