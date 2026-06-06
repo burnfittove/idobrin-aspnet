@@ -19,4 +19,6 @@ public interface IUserService
     Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken);
     Task<bool?> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken);
     Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken);
+    
+    Task<UserReturn?> ReturnByUsername(string username, CancellationToken cancellationToken = default);
 }

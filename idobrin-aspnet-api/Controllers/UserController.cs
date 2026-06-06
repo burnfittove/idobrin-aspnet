@@ -36,26 +36,26 @@ public class UserController(IUserService userService, IConfiguration config) : C
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellationToken = default)
     {
         var result = await _userService.DeleteAsync(id, cancellationToken);
         return result ? NoContent() : NotFound(); 
     }
     
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<UserReturn>> CreateProduct(UserCreate user, CancellationToken cancellationToken = default)
-    {
-        var entity = await _userService.CreateAsync(user, cancellationToken);
-        return CreatedAtAction(nameof(ReturnUser), new { id = entity.Id }, entity);
-    }
+    // [HttpPost]
+    // [ProducesResponseType(StatusCodes.Status201Created)]
+    // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    // public async Task<ActionResult<UserReturn>> CreateUser(UserCreate user, CancellationToken cancellationToken = default)
+    // {
+    //     var entity = await _userService.CreateAsync(user, cancellationToken);
+    //     return CreatedAtAction(nameof(ReturnUser), new { id = entity.Id }, entity);
+    // }
     
     [HttpPut("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateProduct(int id, UserUpdate user,
+    public async Task<IActionResult> UpdateUser(int id, UserUpdate user,
         CancellationToken cancellationToken = default)
     {
         if (id != user.Id) return BadRequest("ID mismatch");
@@ -90,6 +90,26 @@ public class UserController(IUserService userService, IConfiguration config) : C
         var secureKey = _config["JWT:SecureKey"];
         var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
 
+        return Ok(serializedToken);
+    }
+
+    [HttpPost("login")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Login(UserLogin user, CancellationToken cancellationToken = default)
+    {
+        // Return the user and check if it exists
+        var entity = await _userService.ReturnByUsername(user.Username, cancellationToken);
+        if (entity == null) return BadRequest("Incorrect username");
+        
+        // Check password
+        var b64hash = PasswordHashProvider.GetHash(user.Password, entity.PwdSalt);
+        if (b64hash != entity.PwdHash) return BadRequest("Incorrect password");
+        
+        // Create JWT
+        var secureKey = _config["JWT:SecureKey"];
+        var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
+        
         return Ok(serializedToken);
     }
 }

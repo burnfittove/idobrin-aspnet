@@ -62,4 +62,10 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
     {
         return await _unitOfWork.UserRepository.UsernameExistsAsync(username, cancellationToken);
     }
+
+    public async Task<UserReturn?> ReturnByUsername(string username, CancellationToken cancellationToken = default)
+    {
+        var entity = await _unitOfWork.UserRepository.ReturnByUsernameAsync(username, cancellationToken);
+        return entity.ToDto();
+    }
 }

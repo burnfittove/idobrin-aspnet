@@ -30,4 +30,9 @@ public class UserRepository(DatabaseContext context) : BaseRepository<User>(cont
     {
         return await DbSet.AnyAsync(e => e.Username.Equals(username), cancellationToken);
     }
+
+    public async Task<User> ReturnByUsernameAsync(string username, CancellationToken cancellationToken)
+    {
+        return await DbSet.FirstOrDefaultAsync(e => e.Username.Equals(username), cancellationToken);
+    }
 }

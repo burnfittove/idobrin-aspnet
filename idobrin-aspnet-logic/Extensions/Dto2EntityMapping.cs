@@ -173,7 +173,7 @@ public static class Dto2EntityMapping
 
     public static UserReturn ToDto(this User user)
     {
-        return new UserReturn(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
+        return new UserReturn(user.Id, user.Username, user.PwdSalt, user.PwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
     }
 
     public static IEnumerable<UserReturn> ToDtoList(this IEnumerable<User> users)
