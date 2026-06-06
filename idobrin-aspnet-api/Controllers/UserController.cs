@@ -1,14 +1,18 @@
+using idobrin_aspnet_api.Security;
 using idobrin_aspnet_logic.DTOs.User;
+using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace idobrin_aspnet_api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(IUserService userService) : ControllerBase
+public class UserController(IUserService userService, IConfiguration config) : ControllerBase
 {
     private readonly IUserService _userService = userService;
+    private readonly IConfiguration _config = config;
 
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -18,8 +22,9 @@ public class UserController(IUserService userService) : ControllerBase
         var entity = await _userService.ReturnByIdAsync(id, cancellationToken);
         return entity == null? NotFound() : Ok(entity);
     }
-
+    
     [HttpGet("all")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<UserReturn>>> ReturnAll(
         CancellationToken cancellationToken = default)
@@ -57,5 +62,34 @@ public class UserController(IUserService userService) : ControllerBase
         
         var result = await _userService.UpdateAsync(id, user, cancellationToken);
         return result == null ? NotFound() : Ok(result);
+    }
+
+    [HttpPost("register")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<UserCreate>> Register(UserRegister user, CancellationToken cancellationToken = default)
+    {
+        // Check if the username exists in the database
+        var trimmedUsername = user.Username.Trim();
+        if (await _userService.UsernameExistsAsync(trimmedUsername, cancellationToken))
+            BadRequest("Username already exists");
+        
+        // Hash the password
+        var b64salt = PasswordHashProvider.GetSalt();
+        var b64hash = PasswordHashProvider.GetHash(user.Password, b64salt);
+        
+        // Create user
+        var entity = user.ToCreateDto(b64salt, b64hash);
+        
+        // Add the user
+        await _userService.CreateAsync(entity, cancellationToken);
+        return Ok(entity);
+        
+        // The same secure key must be used here to create JWT,
+        // as the one that is used by middleware to verify JWT
+        var secureKey = _config["JWT:SecureKey"];
+        var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
+
+        return Ok(serializedToken);
     }
 }

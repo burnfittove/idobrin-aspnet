@@ -14,7 +14,6 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
         return entity.ToDto();
     }
-
     public async Task<IEnumerable<UserReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default)
     {
         var entities = await _unitOfWork.UserRepository.ReturnAllAsync(cancellationToken);
@@ -57,5 +56,10 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         await _unitOfWork.UserRepository.UpdateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
+    }
+
+    public async Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken)
+    {
+        return await _unitOfWork.UserRepository.UsernameExistsAsync(username, cancellationToken);
     }
 }

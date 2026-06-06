@@ -195,11 +195,19 @@ public static class Dto2EntityMapping
     {
         return new User
         {
+            Username = user.Username,
+            PwdSalt = user.PwdSalt,
+            PwdHash = user.PwdHash,
             FirstName = user.FirstName,
             LastName = user.LastName,
             PhoneNumber = user.PhoneNumber,
             Email = user.Email,
         };
+    }
+
+    public static UserCreate ToCreateDto(this UserRegister user, string pwdSalt, string pwdHash)
+    {
+        return new UserCreate(user.Username, pwdSalt, pwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
     }
 
     #endregion

@@ -18,4 +18,5 @@ public interface IUserService
     Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
     Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken);
     Task<bool?> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken);
+    Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken);
 }
