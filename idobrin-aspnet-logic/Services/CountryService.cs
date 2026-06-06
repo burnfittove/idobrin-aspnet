@@ -44,10 +44,10 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
         return returnEntity.ToDto();
     }
 
-    public async Task<bool> UpdateAsync(CountryUpdate country, CancellationToken cancellationToken = default)
+    public async Task<bool> UpdateAsync(int id, CountryUpdate country, CancellationToken cancellationToken = default)
     {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.CountryRepository.ReturnByIdAsync(country.Id, cancellationToken);
-        if (entity == null) return false;
         
         entity.Name = country.Name;
         await _unitOfWork.CountryRepository.UpdateAsync(entity, cancellationToken);
@@ -57,8 +57,8 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
 
     public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.CountryRepository.ReturnByIdAsync(id, cancellationToken);
-        if (entity == null) return false;
         
         await _unitOfWork.CountryRepository.DeleteAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -70,8 +70,9 @@ public class CountryService(IUnitOfWork unitOfWork) : ICountryService
         return await _unitOfWork.CountryRepository.ExistsAsync(id, cancellationToken);
     }
 
-    public async Task<CountryReturnIncludeMunicipality> ReturnCountryByIdWithMunicipalitiesAsync(int id, CancellationToken cancellationToken = default)
+    public async Task<CountryWithMunicipalityReturn?> ReturnCountryByIdWithMunicipalitiesAsync(int id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var entities = await _unitOfWork.CountryRepository.ReturnCountryWithMunicipalities(id, cancellationToken);
+        return entities.ToCountryWithMunicipalitiesEntity();
     }
 }

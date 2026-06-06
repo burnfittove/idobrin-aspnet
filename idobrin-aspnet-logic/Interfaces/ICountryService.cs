@@ -28,7 +28,7 @@ public interface ICountryService
     /// Updates an entity.
     /// </summary>
     /// <param name="entity">Entity to update.</param>
-    Task<bool> UpdateAsync(CountryUpdate country, CancellationToken cancellationToken = default);
+    Task<bool> UpdateAsync(int id, CountryUpdate country, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Deletes an entity.
@@ -43,6 +43,6 @@ public interface ICountryService
     /// <returns>bool</returns>
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
 
-    Task<CountryReturnIncludeMunicipality> ReturnCountryByIdWithMunicipalitiesAsync(int id,
+    Task<CountryWithMunicipalityReturn?> ReturnCountryByIdWithMunicipalitiesAsync(int id,
         CancellationToken cancellationToken = default);
 }

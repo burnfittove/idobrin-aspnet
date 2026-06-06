@@ -35,4 +35,27 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
+
+    public async Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken)
+    {
+        var entity = user.ToEntity();
+        await _unitOfWork.UserRepository.CreateAsync(entity, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return entity.ToDto();
+    }
+
+    public async Task<bool?> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken)
+    {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
+
+        entity.FirstName = user.FirstName;
+        entity.LastName = user.Lastname;
+        entity.Email = user.Email;
+        entity.PhoneNumber = user.PhoneNumber;
+
+        await _unitOfWork.UserRepository.UpdateAsync(entity, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 }

@@ -12,7 +12,7 @@ public class MunicipalityController(IMunicipalityService municipalityService) : 
     
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<MunicipalityReturn>> GetMunicipality(int id, CancellationToken cancellationToken)
+    public async Task<ActionResult<MunicipalityReturn>> ReturnMunicipality(int id, CancellationToken cancellationToken)
     {
         var entity = await _municipalityService.ReturnByIdAsync(id, cancellationToken);
         if (entity == null) return NotFound();
@@ -21,7 +21,7 @@ public class MunicipalityController(IMunicipalityService municipalityService) : 
     
     [HttpGet("{id:int}/country")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<MunicipalityReturn>> GetMunicipalityWithCountry(int id, CancellationToken cancellationToken)
+    public async Task<ActionResult<MunicipalityReturn>> ReturnMunicipalityWithCountry(int id, CancellationToken cancellationToken)
     {
         var entity = await _municipalityService.ReturnByIdWithCountryAsync(id, cancellationToken);
         if (entity == null) return NotFound();
@@ -30,7 +30,7 @@ public class MunicipalityController(IMunicipalityService municipalityService) : 
 
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<IEnumerable<MunicipalityReturn>>> GetAllMunicipalities(
+    public async Task<ActionResult<IEnumerable<MunicipalityReturn>>> ReturnAllMunicipalities(
         CancellationToken cancellationToken)
     {
         var entity = await _municipalityService.ReturnAllAsync(cancellationToken);
@@ -44,5 +44,27 @@ public class MunicipalityController(IMunicipalityService municipalityService) : 
     {
         var result = await _municipalityService.DeleteAsync(id, cancellationToken);
         return result ? NoContent() : NotFound(); 
+    }
+    
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<MunicipalityReturn>> CreateProduct(MunicipalityCreate municipality, CancellationToken cancellationToken = default)
+    {
+        var entity = await _municipalityService.CreateAsync(municipality, cancellationToken);
+        return CreatedAtAction(nameof(ReturnMunicipality), new { id = entity.Id }, entity);
+    }
+    
+    [HttpPut("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateProduct(int id, MunicipalityUpdate municipality,
+        CancellationToken cancellationToken = default)
+    {
+        if (id != municipality.Id) return BadRequest("ID mismatch");
+        
+        var result = await _municipalityService.UpdateAsync(id, municipality, cancellationToken);
+        return result == null ? NotFound() : Ok(result);
     }
 }

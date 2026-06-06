@@ -29,6 +29,12 @@ public static class Dto2EntityMapping
     {
         return new Country { Name = country.Name };
     }
+
+    public static CountryWithMunicipalityReturn ToCountryWithMunicipalitiesEntity(this Country country)
+    {
+        return new CountryWithMunicipalityReturn(country.Id, country.Name, country.Municipalities.ToDtoList());
+    }
+    
     #endregion
 
     #region Municipality
@@ -183,6 +189,17 @@ public static class Dto2EntityMapping
     public static UserWithWishlistReturn ToUserWithWishlistDto(this User user)
     {
         return new UserWithWishlistReturn(user.Id, user.Wishlist?.ToDto());
+    }
+
+    public static User ToEntity(this UserCreate user)
+    {
+        return new User
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            PhoneNumber = user.PhoneNumber,
+            Email = user.Email,
+        };
     }
 
     #endregion

@@ -28,18 +28,20 @@ public class MunicipalityService(IUnitOfWork unitOfWork) : IMunicipalityService
         return entity.ToDtoList();
     }
 
-    public async Task<MunicipalityReturn> CreateAsync(MunicipalityCreate country, CancellationToken cancellationToken = default)
+    public async Task<MunicipalityReturn> CreateAsync(MunicipalityCreate municipality, CancellationToken cancellationToken = default)
     {
-        var entity = country.ToEntity();
+        var entity = municipality.ToEntity();
+        Console.WriteLine(entity.Name);
+        Console.WriteLine(entity.CountryId.ToString());
         await _unitOfWork.MunicipalityRepository.CreateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return entity.ToDto();
     }
 
-    public async Task<bool> UpdateAsync(MunicipalityUpdate country, CancellationToken cancellationToken = default)
+    public async Task<bool> UpdateAsync(int id, MunicipalityUpdate country, CancellationToken cancellationToken = default)
     {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.MunicipalityRepository.ReturnByIdAsync(country.Id, cancellationToken);
-        if (entity == null) return false;
         
         entity.Name = country.Name;
         entity.CountryId = country.CountryId;

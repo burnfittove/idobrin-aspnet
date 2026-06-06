@@ -29,13 +29,13 @@ public interface IMunicipalityService
     /// </summary>
     /// <param name="entity">Entity.</param>
     /// <returns>T</returns>
-    Task<MunicipalityReturn> CreateAsync(MunicipalityCreate country, CancellationToken cancellationToken = default);
+    Task<MunicipalityReturn> CreateAsync(MunicipalityCreate municipality, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Updates an entity.
     /// </summary>
     /// <param name="entity">Entity to update.</param>
-    Task<bool> UpdateAsync(MunicipalityUpdate country, CancellationToken cancellationToken = default);
+    Task<bool> UpdateAsync(int id, MunicipalityUpdate country, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Deletes an entity.

@@ -1,4 +1,5 @@
 using idobrin_aspnet_logic.DTOs.Country;
+using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,5 +44,27 @@ public class CountryController(ICountryService countryService) : ControllerBase
     {
         var result = await _countryService.DeleteAsync(id, cancellationToken);
         return result ? NoContent() : NotFound(); 
+    }
+    
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CountryReturn>> CreateProduct(CountryCreate country, CancellationToken cancellationToken = default)
+    {
+        var entity = await _countryService.CreateAsync(country, cancellationToken);
+        return CreatedAtAction(nameof(ReturnCountry), new { id = entity.Id }, entity);
+    }
+    
+    [HttpPut("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateProduct(int id, CountryUpdate country,
+        CancellationToken cancellationToken = default)
+    {
+        if (id != country.Id) return BadRequest("ID mismatch");
+        
+        var result = await _countryService.UpdateAsync(id, country, cancellationToken);
+        return result == null ? NotFound() : Ok(result);
     }
 }
