@@ -5,6 +5,7 @@ using idobrin_aspnet_dal.Repositories;
 using idobrin_aspnet_logic.Interfaces;
 using idobrin_aspnet_logic.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;

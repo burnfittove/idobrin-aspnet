@@ -212,6 +212,23 @@ namespace idobrin_aspnet_dal.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
+            modelBuilder.Entity("aspnet_domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RoleType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles", (string)null);
+                });
+
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -243,12 +260,17 @@ namespace idobrin_aspnet_dal.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .IsUnicode(true)
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -377,6 +399,17 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("aspnet_domain.Entities.User", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("aspnet_domain.Entities.Wishlist", b =>
                 {
                     b.HasOne("aspnet_domain.Entities.User", "User")
@@ -439,6 +472,11 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("Items");
 
                     b.Navigation("WishlistProducts");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Role", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>

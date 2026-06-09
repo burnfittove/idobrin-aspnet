@@ -17,6 +17,7 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     private IAddressRepository? _addressRepo;
     private IWishlistRepository? _wishlistRepo;
     private IWishlistProductsRepository? _wishlistProductsRepo;
+    private IRoleRepository? _roleRepo;
     private bool disposed = false;
     
     public ICountryRepository CountryRepository => _countryRepo ??= new CountryRepository(context);
@@ -31,6 +32,7 @@ public sealed class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public IAddressRepository AddressRepository => _addressRepo ??= new AddressRepository(context);
     public IWishlistRepository WishlistRepository => _wishlistRepo ??= new WishlistRepository(context);
     public IWishlistProductsRepository WishlistProductsRepository => _wishlistProductsRepo ??= new WishlistProductsRepository(context);
+    public IRoleRepository RoleRepository =>  _roleRepo ??= new RoleRepository(context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

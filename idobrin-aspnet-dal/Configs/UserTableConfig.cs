@@ -14,5 +14,10 @@ public class UserTableConfig : IEntityTypeConfiguration<User>
 
         builder.Property(e => e.FirstName).IsUnicode().IsRequired();
         builder.Property(e => e.Username).IsUnicode().IsRequired();
+
+        builder
+            .HasOne(e => e.Role)
+            .WithMany(e => e.Users)
+            .HasForeignKey(e => e.RoleId);
     }
 }

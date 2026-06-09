@@ -1,4 +1,5 @@
 using idobrin_aspnet_logic.DTOs;
+using idobrin_aspnet_logic.DTOs.Role;
 using idobrin_aspnet_logic.DTOs.User;
 
 namespace idobrin_aspnet_logic.Interfaces;

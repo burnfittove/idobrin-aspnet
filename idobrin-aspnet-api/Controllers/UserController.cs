@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using idobrin_aspnet_api.Security;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
@@ -79,18 +80,11 @@ public class UserController(IUserService userService, IConfiguration config) : C
         var b64hash = PasswordHashProvider.GetHash(user.Password, b64salt);
         
         // Create user
-        var entity = user.ToCreateDto(b64salt, b64hash);
+        var entity = user.ToCreateDto(b64salt, b64hash, 1);
         
         // Add the user
         await _userService.CreateAsync(entity, cancellationToken);
         return Ok(entity);
-        
-        // The same secure key must be used here to create JWT,
-        // as the one that is used by middleware to verify JWT
-        var secureKey = _config["JWT:SecureKey"];
-        var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
-
-        return Ok(serializedToken);
     }
 
     [HttpPost("login")]
@@ -102,13 +96,15 @@ public class UserController(IUserService userService, IConfiguration config) : C
         var entity = await _userService.ReturnByUsername(user.Username, cancellationToken);
         if (entity == null) return BadRequest("Incorrect username");
         
+        Console.WriteLine(entity.Role);
+        
         // Check password
         var b64hash = PasswordHashProvider.GetHash(user.Password, entity.PwdSalt);
         if (b64hash != entity.PwdHash) return BadRequest("Incorrect password");
         
         // Create JWT
         var secureKey = _config["JWT:SecureKey"];
-        var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10);
+        var serializedToken = JwtTokenProvider.CreateToken(secureKey, 10, entity.Role);
         
         return Ok(serializedToken);
     }

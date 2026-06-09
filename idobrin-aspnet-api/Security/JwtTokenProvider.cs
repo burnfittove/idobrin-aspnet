@@ -7,7 +7,7 @@ namespace idobrin_aspnet_api.Security;
 
 public class JwtTokenProvider
 {
-    public static string CreateToken(string secureKey, int expiration, string subject = null)
+    public static string CreateToken(string secureKey, int expiration, string role, string subject = null)
     {
         // Get secret key bytes
         var tokenKey = Encoding.UTF8.GetBytes(secureKey);
@@ -19,15 +19,25 @@ public class JwtTokenProvider
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(tokenKey),
                 SecurityAlgorithms.HmacSha256Signature),
-            IssuedAt = DateTime.UtcNow,
+            IssuedAt = DateTime.UtcNow
         };
 
-        if (!string.IsNullOrEmpty(subject))
+        if (!string.IsNullOrEmpty(role))
         {
-            tokenDescriptor.Subject = new ClaimsIdentity([
-                new Claim(ClaimTypes.Name, subject),
-                new Claim(JwtRegisteredClaimNames.Sub, subject)
-            ]);
+            if (!string.IsNullOrEmpty(subject))
+            {
+                tokenDescriptor.Subject = new ClaimsIdentity([
+                    new Claim(ClaimTypes.Name, subject),
+                    new Claim(JwtRegisteredClaimNames.Sub, subject),
+                    new Claim(ClaimTypes.Role, role)
+                ]);
+            }
+            else
+            {
+                tokenDescriptor.Subject = new ClaimsIdentity([
+                    new Claim(ClaimTypes.Role, role)
+                ]);
+            }
         }
 
         // Create token using that descriptor, serialize it and return it

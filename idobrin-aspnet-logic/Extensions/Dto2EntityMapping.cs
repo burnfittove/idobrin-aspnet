@@ -7,6 +7,7 @@ using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.DTOs.Item;
 using idobrin_aspnet_logic.DTOs.Municipality;
 using idobrin_aspnet_logic.DTOs.Products;
+using idobrin_aspnet_logic.DTOs.Role;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.DTOs.Wishlist;
 
@@ -173,7 +174,7 @@ public static class Dto2EntityMapping
 
     public static UserReturn ToDto(this User user)
     {
-        return new UserReturn(user.Id, user.Username, user.PwdSalt, user.PwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
+        return new UserReturn(user.Id, user.Username, user.PwdSalt, user.PwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.Role?.RoleType);
     }
 
     public static IEnumerable<UserReturn> ToDtoList(this IEnumerable<User> users)
@@ -202,12 +203,13 @@ public static class Dto2EntityMapping
             LastName = user.LastName,
             PhoneNumber = user.PhoneNumber,
             Email = user.Email,
+            RoleId = user.RoleId,
         };
     }
 
-    public static UserCreate ToCreateDto(this UserRegister user, string pwdSalt, string pwdHash)
+    public static UserCreate ToCreateDto(this UserRegister user, string pwdSalt, string pwdHash, int RoleId)
     {
-        return new UserCreate(user.Username, pwdSalt, pwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber);
+        return new UserCreate(user.Username, pwdSalt, pwdHash, user.FirstName, user.LastName, user.Email, user.PhoneNumber, RoleId);
     }
 
     #endregion
@@ -251,6 +253,16 @@ public static class Dto2EntityMapping
             Id = wishlist.Id,
             UserId = wishlist.UserId
         };
+    }
+
+    #endregion
+
+
+    #region Role
+
+    public static RoleReturn ToDto(this Role role)
+    {
+        return new RoleReturn(role.Id, role.RoleType);
     }
 
     #endregion

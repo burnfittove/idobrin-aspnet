@@ -1,4 +1,5 @@
 using aspnet_domain.Interfaces;
+using idobrin_aspnet_logic.DTOs.Role;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
