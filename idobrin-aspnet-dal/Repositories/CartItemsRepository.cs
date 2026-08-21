@@ -44,16 +44,9 @@ public class CartItemsRepository(DatabaseContext context) : ICartItemsRepository
     // }
 
 
-    public async Task<CartItem> AddItemToCartAsync(Cart cart, Item item, CancellationToken cancellationToken)
+    public async Task<CartItem> AddItemToCartAsync(CartItem cartItem, CancellationToken cancellationToken)
     {
-        var entity = new CartItem()
-        {
-            CartId = cart.Id,
-            Cart = cart,
-            ItemId = item.Id,
-            Item = item
-        };
-        await DbSet.AddAsync(entity, cancellationToken);
-        return entity;
+        await DbSet.AddAsync(cartItem, cancellationToken);
+        return cartItem;
     }
 }

@@ -42,9 +42,9 @@ public class CartController(ICartService cartService) : ControllerBase
     [HttpPatch("{cartId:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> AddItemToCart(int cartId, int itemId, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> AddItemToCart([FromRoute]int cartId, [FromQuery]int productId, [FromQuery]int quantity, CancellationToken cancellationToken = default)
     {
-        var result = await _cartService.AddItemToCartAsync(cartId, itemId, cancellationToken);
+        var result = await _cartService.AddItemToCartAsync(cartId, productId, quantity, cancellationToken);
         return result ? Ok(result) : BadRequest();
     }
     
