@@ -25,4 +25,14 @@ public class UserRepository(DatabaseContext context) : BaseRepository<User>(cont
             .ThenInclude(e => e.Product)
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
     }
+
+    public async Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken)
+    {
+        return await DbSet.AnyAsync(e => e.Username.Equals(username), cancellationToken);
+    }
+
+    public async Task<User> ReturnByUsernameAsync(string username, CancellationToken cancellationToken)
+    {
+        return await DbSet.FirstOrDefaultAsync(e => e.Username.Equals(username), cancellationToken);
+    }
 }

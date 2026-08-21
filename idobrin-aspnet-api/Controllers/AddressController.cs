@@ -1,5 +1,6 @@
 using idobrin_aspnet_logic.DTOs.Address;
 using idobrin_aspnet_logic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace idobrin_aspnet_api.Controllers;

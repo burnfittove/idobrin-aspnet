@@ -12,8 +12,8 @@ using idobrin_aspnet_dal.Configs;
 namespace idobrin_aspnet_dal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260530201632_AddedAddresses")]
-    partial class AddedAddresses
+    [Migration("20260609132308_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -215,6 +215,23 @@ namespace idobrin_aspnet_dal.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
+            modelBuilder.Entity("aspnet_domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RoleType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles", (string)null);
+                });
+
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -224,8 +241,6 @@ namespace idobrin_aspnet_dal.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .IsUnicode(true)
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
@@ -235,15 +250,66 @@ namespace idobrin_aspnet_dal.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .IsUnicode(true)
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("PwdHash")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PwdSalt")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .IsUnicode(true)
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Wishlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Wishlists", (string)null);
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.WishlistProducts", b =>
+                {
+                    b.Property<int>("WishlistId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WishlistId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("WishlistProducts", (string)null);
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.Address", b =>
@@ -336,6 +402,47 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("aspnet_domain.Entities.User", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Wishlist", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.User", "User")
+                        .WithOne("Wishlist")
+                        .HasForeignKey("aspnet_domain.Entities.Wishlist", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.WishlistProducts", b =>
+                {
+                    b.HasOne("aspnet_domain.Entities.Product", "Product")
+                        .WithMany("WishlistProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("aspnet_domain.Entities.Wishlist", "Wishlist")
+                        .WithMany("WishlistProducts")
+                        .HasForeignKey("WishlistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Wishlist");
+                });
+
             modelBuilder.Entity("aspnet_domain.Entities.Cart", b =>
                 {
                     b.Navigation("CartItems");
@@ -366,6 +473,13 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("CategoryProducts");
 
                     b.Navigation("Items");
+
+                    b.Navigation("WishlistProducts");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Role", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("aspnet_domain.Entities.User", b =>
@@ -373,6 +487,13 @@ namespace idobrin_aspnet_dal.Migrations
                     b.Navigation("Address");
 
                     b.Navigation("Cart");
+
+                    b.Navigation("Wishlist");
+                });
+
+            modelBuilder.Entity("aspnet_domain.Entities.Wishlist", b =>
+                {
+                    b.Navigation("WishlistProducts");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,7 +13,11 @@ public class UserTableConfig : IEntityTypeConfiguration<User>
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.FirstName).IsUnicode().IsRequired();
-        builder.Property(e => e.LastName).IsUnicode().IsRequired();
-        builder.Property(e => e.Email).IsUnicode().IsRequired();
+        builder.Property(e => e.Username).IsUnicode().IsRequired();
+
+        builder
+            .HasOne(e => e.Role)
+            .WithMany(e => e.Users)
+            .HasForeignKey(e => e.RoleId);
     }
 }
