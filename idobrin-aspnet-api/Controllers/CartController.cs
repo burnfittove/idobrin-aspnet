@@ -45,7 +45,7 @@ public class CartController(ICartService cartService) : ControllerBase
     public async Task<IActionResult> AddItemToCart(int cartId, int itemId, CancellationToken cancellationToken = default)
     {
         var result = await _cartService.AddItemToCartAsync(cartId, itemId, cancellationToken);
-        return result ? BadRequest() : Ok(result);
+        return result ? Ok(result) : BadRequest();
     }
     
     [HttpDelete("{id:int}")]
