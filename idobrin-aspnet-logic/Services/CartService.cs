@@ -14,7 +14,7 @@ public class CartService(IUnitOfWork unitOfWork) : ICartService
     public async Task<CartReturn?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.CartRepository.ReturnByIdAsync(id, cancellationToken);
-        return entity.ToDto();
+        return entity?.ToDto();
     }
 
     public async Task<IEnumerable<CartReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default)
