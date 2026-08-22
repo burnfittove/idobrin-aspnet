@@ -10,7 +10,7 @@ namespace idobrin_aspnet_api.Controllers;
 public class AddressController(IAddressService addressService, ILogger<AddressController> logger) : ControllerBase
 {
     private readonly IAddressService _addressService = addressService;
-    private readonly ILogger<AddressController> _logger;
+    private readonly ILogger<AddressController> _logger = logger;
 
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status200OK)]
