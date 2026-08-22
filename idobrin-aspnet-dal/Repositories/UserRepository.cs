@@ -36,4 +36,16 @@ public class UserRepository(DatabaseContext context) : BaseRepository<User>(cont
         return await DbSet.Include(e => e.Role)
             .FirstOrDefaultAsync(e => e.Username.Equals(username), cancellationToken);
     }
+
+    public override async Task<User?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        return await DbSet.Include(e => e.Role)
+            .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+    }
+
+    public override async Task<IEnumerable<User>> ReturnAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await DbSet.Include(e => e.Role)
+            .ToListAsync(cancellationToken);
+    }
 }

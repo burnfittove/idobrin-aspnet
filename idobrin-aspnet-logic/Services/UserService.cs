@@ -1,5 +1,4 @@
 using aspnet_domain.Interfaces;
-using idobrin_aspnet_logic.DTOs.Role;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
 using idobrin_aspnet_logic.Interfaces;
@@ -44,7 +43,7 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return entity.ToDto();
     }
 
-    public async Task<bool?> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken)
+    public async Task<bool> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken)
     {
         if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
@@ -68,5 +67,17 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
     {
         var entity = await _unitOfWork.UserRepository.ReturnByUsernameAsync(username, cancellationToken);
         return entity.ToDto();
+    }
+
+    public async Task<bool> UpdateRoleAsync(int id, UserUpdateRole user, CancellationToken cancellationToken)
+    {
+        if (!await ExistsAsync(id, cancellationToken)) return false;
+        var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
+
+        entity.RoleId = user.roleId;
+
+        await _unitOfWork.UserRepository.UpdateAsync(entity, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }
