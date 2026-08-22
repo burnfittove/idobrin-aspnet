@@ -1,5 +1,3 @@
-using idobrin_aspnet_logic.DTOs;
-using idobrin_aspnet_logic.DTOs.Role;
 using idobrin_aspnet_logic.DTOs.User;
 
 namespace idobrin_aspnet_logic.Interfaces;
@@ -18,8 +16,9 @@ public interface IUserService
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
     Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
     Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken);
-    Task<bool?> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken);
+    Task<bool> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken);
     Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken);
     
     Task<UserReturn?> ReturnByUsername(string username, CancellationToken cancellationToken = default);
+    Task<bool> UpdateRoleAsync(int id, UserUpdateRole user, CancellationToken cancellationToken);
 }
