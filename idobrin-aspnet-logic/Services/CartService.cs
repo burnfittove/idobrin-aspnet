@@ -69,4 +69,28 @@ public class CartService(IUnitOfWork unitOfWork) : ICartService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
+
+    public async Task<bool> DeleteItemFromCartAsync(int cartId, int itemId, CancellationToken cancellationToken)
+    {
+        // Check if cart exists
+        var cart = await ReturnByIdAsync(cartId, cancellationToken);
+        if (cart == null) return false;
+        
+        // Check if item exists
+        var item = await _unitOfWork.ItemRepository.ReturnByIdAsync(itemId, cancellationToken);
+        if (item == null) return false;
+
+        // Find CartItems record and delete it
+        var cartItem = await _unitOfWork.CartItemsRepository.ReturnByIdAsync(cartId, itemId, cancellationToken);
+        if (cartItem == null) return false;
+        _unitOfWork.CartItemsRepository.DeleteAsync(cartItem, cancellationToken);
+        
+        // Delete item
+        _unitOfWork.ItemRepository.DeleteAsync(item, cancellationToken);
+        
+        // Save changes
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        
+        return true;
+    }
 }

@@ -16,4 +16,5 @@ public interface ICartService
     Task<bool> AddItemToCartAsync(int cartId, int productId, int quantity, CancellationToken cancellationToken);
     Task<CartReturn> CreateAsync(CartCreate cart, CancellationToken cancellationToken);
     Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
+    Task<bool> DeleteItemFromCartAsync(int cartId, int itemId, CancellationToken cancellationToken);
 }
