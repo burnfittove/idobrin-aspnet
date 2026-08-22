@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace aspnet_domain.Entities;
 
 public class User : Base

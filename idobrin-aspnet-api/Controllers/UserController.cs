@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using idobrin_aspnet_api.Security;
 using idobrin_aspnet_logic.DTOs.User;
 using idobrin_aspnet_logic.Extensions;
@@ -95,8 +94,6 @@ public class UserController(IUserService userService, IConfiguration config) : C
         // Return the user and check if it exists
         var entity = await _userService.ReturnByUsername(user.Username, cancellationToken);
         if (entity == null) return BadRequest("Incorrect username");
-        
-        Console.WriteLine(entity.Role);
         
         // Check password
         var b64hash = PasswordHashProvider.GetHash(user.Password, entity.PwdSalt);
