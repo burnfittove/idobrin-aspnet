@@ -13,7 +13,8 @@ public interface ICartService
     Task<IEnumerable<CartReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default);
 
     Task<CartReturn?> ReturnByUserIdAsync(int userId, CancellationToken cancellationToken = default);
-    Task<bool> AddItemToCartAsync(int cartId, int itemId, CancellationToken cancellationToken);
+    Task<bool> AddItemToCartAsync(int cartId, int productId, int quantity, CancellationToken cancellationToken);
     Task<CartReturn> CreateAsync(CartCreate cart, CancellationToken cancellationToken);
     Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
+    Task<bool> DeleteItemFromCartAsync(int cartId, int itemId, CancellationToken cancellationToken);
 }

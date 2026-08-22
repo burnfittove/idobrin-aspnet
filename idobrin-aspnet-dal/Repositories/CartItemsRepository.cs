@@ -44,16 +44,30 @@ public class CartItemsRepository(DatabaseContext context) : ICartItemsRepository
     // }
 
 
-    public async Task<CartItem> AddItemToCartAsync(Cart cart, Item item, CancellationToken cancellationToken)
+    public async Task<CartItem?> FindByItemIdAsync(int itemId, CancellationToken cancellationToken)
     {
-        var entity = new CartItem()
-        {
-            CartId = cart.Id,
-            Cart = cart,
-            ItemId = item.Id,
-            Item = item
-        };
-        await DbSet.AddAsync(entity, cancellationToken);
-        return entity;
+        return await DbSet.FirstOrDefaultAsync(e => e.ItemId == itemId, cancellationToken);
+    }
+
+    public async Task<CartItem?> FindByCartIdAsync(int cartId, CancellationToken cancellationToken)
+    {
+        return await DbSet.FirstOrDefaultAsync(e => e.CartId == cartId, cancellationToken);
+    }
+
+    public async Task<CartItem?> ReturnByIdAsync(int cartId, int itemId, CancellationToken cancellationToken)
+    {
+        return await DbSet.FirstOrDefaultAsync(e => e.ItemId == itemId && e.CartId == cartId, cancellationToken);
+    }
+
+    public async Task<CartItem> AddItemToCartAsync(CartItem cartItem, CancellationToken cancellationToken)
+    {
+        await DbSet.AddAsync(cartItem, cancellationToken);
+        return cartItem;
+    }
+
+    public Task DeleteAsync(CartItem cartItem, CancellationToken cancellationToken)
+    {
+        DbSet.Remove(cartItem);
+        return Task.CompletedTask;
     }
 }

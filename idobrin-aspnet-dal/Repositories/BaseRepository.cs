@@ -17,7 +17,7 @@ public class BaseRepository<T>(DatabaseContext context) : IBaseRepository<T>
 
     public virtual async Task<T?> ReturnByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        return await DbSet.FindAsync(id, cancellationToken);
+        return await DbSet.FindAsync([id], cancellationToken);
     }
 
     public virtual async Task<IEnumerable<T>> ReturnAllAsync(CancellationToken cancellationToken = default)

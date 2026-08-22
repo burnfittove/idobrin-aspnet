@@ -45,18 +45,27 @@ public class CartController(ICartService cartService) : ControllerBase
     [HttpPatch("{cartId:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> AddItemToCart(int cartId, int itemId, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> AddItemToCart([FromRoute]int cartId, [FromQuery]int productId, [FromQuery]int quantity, CancellationToken cancellationToken = default)
     {
-        var result = await _cartService.AddItemToCartAsync(cartId, itemId, cancellationToken);
+        var result = await _cartService.AddItemToCartAsync(cartId, productId, quantity, cancellationToken);
         return result ? Ok(result) : BadRequest();
     }
     
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> DeleteCart(int id, CancellationToken cancellationToken = default)
     {
         var result = await _cartService.DeleteAsync(id, cancellationToken);
         return result ? NoContent() : NotFound(); 
+    }
+    
+    [HttpDelete("{cartId:int}/{itemId:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> RemoveItemFromCart([FromRoute]int cartId, [FromRoute]int itemId, CancellationToken cancellationToken = default)
+    {
+        var result = await _cartService.DeleteItemFromCartAsync(cartId, itemId, cancellationToken);
+        return result ? Ok(result) : BadRequest();
     }
 }

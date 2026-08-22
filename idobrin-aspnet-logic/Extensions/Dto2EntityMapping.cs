@@ -1,7 +1,7 @@
 using aspnet_domain.Entities;
-using idobrin_aspnet_logic.DTOs;
 using idobrin_aspnet_logic.DTOs.Address;
 using idobrin_aspnet_logic.DTOs.Cart;
+using idobrin_aspnet_logic.DTOs.CartItems;
 using idobrin_aspnet_logic.DTOs.Category;
 using idobrin_aspnet_logic.DTOs.Country;
 using idobrin_aspnet_logic.DTOs.Item;
@@ -132,8 +132,7 @@ public static class Dto2EntityMapping
         return new Item
         {
             ProductId = item.ProductId,
-            Quantity = item.quantity,
-            TotalPrice = item.TotalPrice
+            Quantity = item.quantity
         };
     }
     
@@ -155,8 +154,9 @@ public static class Dto2EntityMapping
     {
         return new Cart
         {
+            Id = cart.Id,
             UserId = cart.UserId,
-            TotalPrice = cart.TotalPrice,
+            TotalPrice = cart.TotalPrice
         };
     }
 
@@ -265,5 +265,19 @@ public static class Dto2EntityMapping
         return new RoleReturn(role.Id, role.RoleType);
     }
 
+    #endregion
+    
+    
+    #region CartItems
+
+    public static CartItem ToEntity(this CartItemCreate cartItem)
+    {
+        return new CartItem
+        {
+            CartId = cartItem.cartId,
+            ItemId = cartItem.itemId
+        };
+    }
+    
     #endregion
 }

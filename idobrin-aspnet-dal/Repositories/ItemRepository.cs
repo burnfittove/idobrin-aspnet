@@ -23,18 +23,9 @@ public class ItemRepository(DatabaseContext context) : BaseRepository<Item>(cont
 
     public async Task<Item> CreateItemAsync(Product product, int quantity, CancellationToken cancellationToken = default)
     {
-        Console.WriteLine($"ItemRepository | ProductID: {product.Id}");
-        Console.WriteLine($"ItemRepository | Quantity: {quantity}");
-        Console.WriteLine($"ItemRepository | TotalPrice: {product.Price * quantity}");
-        
-        var entity = new Item
-        {
-            ProductId = product.Id,
-            Product =  product,
-            Quantity = quantity,
-            TotalPrice = product.Price * quantity
-        };
-        var returnEnt = await CreateAsync(entity, cancellationToken);
-        return returnEnt;
+        // var entity = new ItemCreate(product, quantity);
+        // var returnEnt = await CreateAsync(entity, cancellationToken);
+        // return returnEnt;
+        throw new NotImplementedException();
     }
 }
