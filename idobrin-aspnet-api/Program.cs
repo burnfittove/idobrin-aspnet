@@ -49,6 +49,14 @@ builder.Services
         };
     });
 
+// Admin requirement policy
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+
+// Elevated rights requirement policy
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("ElevatedRights", policy => policy.RequireRole("Admin", "Management"));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

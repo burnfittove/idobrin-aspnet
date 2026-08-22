@@ -1,10 +1,12 @@
 using idobrin_aspnet_logic.DTOs.Cart;
 using idobrin_aspnet_logic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace idobrin_aspnet_api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class CartController(ICartService cartService) : ControllerBase
 {
@@ -20,6 +22,7 @@ public class CartController(ICartService cartService) : ControllerBase
     }
 
     [HttpGet("/all")]
+    [Authorize(Policy = "ElevatedRights")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IEnumerable<CartReturn?>>> ReturnAllCart(
