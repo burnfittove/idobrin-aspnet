@@ -155,3 +155,6 @@ FROM `Addresses` AS `a`
 2026-08-22 20:34:22.853 +02:00 [DBG] Connection id "0HNO0FEOOR96I" sending FIN because: "The Socket transport's send loop completed gracefully."
 2026-08-22 20:34:22.853 +02:00 [DBG] Connection id "0HNO0FEOOR96I" disconnecting.
 2026-08-22 20:34:22.853 +02:00 [DBG] Connection id "0HNO0FEOOR96I" stopped.
+2026-08-22 20:50:11.729 +02:00 [INF] Application is shutting down...
+2026-08-22 20:50:11.730 +02:00 [DBG] Hosting stopping
+2026-08-22 20:50:11.737 +02:00 [DBG] Hosting stopped
