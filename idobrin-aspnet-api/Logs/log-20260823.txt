@@ -321,3 +321,297 @@ FROM `Products` AS `p`
 2026-08-23 15:19:22.006 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
 2026-08-23 15:19:22.020 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Product/all - 200 null application/json; charset=utf-8 1006.301ms
 2026-08-23 15:21:44.733 +02:00 [INF] Application is shutting down...
+2026-08-23 17:50:00.233 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 17:50:00.297 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 17:50:00.298 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 17:50:00.299 +02:00 [INF] Hosting environment: Development
+2026-08-23 17:50:00.299 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 17:50:00.712 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 17:50:00.733 +02:00 [INF] 127.0.0.1 requested access to /swagger via GET
+2026-08-23 17:50:00.748 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 36.3051ms
+2026-08-23 17:50:00.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 17:50:00.753 +02:00 [INF] 127.0.0.1 requested access to /swagger/index.html via GET
+2026-08-23 17:50:00.794 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 41.9073ms
+2026-08-23 17:50:00.812 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 17:50:00.812 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-23 17:50:00.813 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui.css via GET
+2026-08-23 17:50:00.813 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - null null
+2026-08-23 17:50:00.813 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui-standalone-preset.js via GET
+2026-08-23 17:50:00.813 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui-bundle.js via GET
+2026-08-23 17:50:00.828 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-08-23 17:50:00.828 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-08-23 17:50:00.828 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 17:50:00.829 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 16.8225ms
+2026-08-23 17:50:00.829 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 16.7934ms
+2026-08-23 17:50:00.829 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 16.8704ms
+2026-08-23 17:50:00.917 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-08-23 17:50:00.917 +02:00 [INF] 127.0.0.1 requested access to /swagger/favicon-16x16.png via GET
+2026-08-23 17:50:00.917 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-08-23 17:50:00.918 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 0.8031ms
+2026-08-23 17:50:00.944 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 17:50:00.944 +02:00 [INF] 127.0.0.1 requested access to /swagger/v1/swagger.json via GET
+2026-08-23 17:50:01.039 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 94.7925ms
+2026-08-23 17:50:08.458 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Municipality/all - null null
+2026-08-23 17:50:08.459 +02:00 [INF] 127.0.0.1 requested access to /api/Municipality/all via GET
+2026-08-23 17:50:08.461 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 17:50:08.476 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api)'
+2026-08-23 17:50:08.489 +02:00 [INF] Route matched with {action = "ReturnAllMunicipalities", controller = "Municipality"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Municipality.MunicipalityReturn]]] ReturnAllMunicipalities(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.MunicipalityController (idobrin-aspnet-api).
+2026-08-23 17:50:08.585 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:50:09.310 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`Id`, `m`.`CountryId`, `m`.`Name`
+FROM `Municipalities` AS `m`
+2026-08-23 17:50:09.369 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 779.5939ms.
+2026-08-23 17:50:09.374 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Municipality, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Municipality.MunicipalityReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:50:09.392 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api) in 900.4036ms
+2026-08-23 17:50:09.393 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api)'
+2026-08-23 17:50:09.400 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Municipality/all - 200 null application/json; charset=utf-8 942.3652ms
+2026-08-23 17:50:15.849 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Product/all - null null
+2026-08-23 17:50:15.850 +02:00 [INF] 127.0.0.1 requested access to /api/Product/all via GET
+2026-08-23 17:50:15.851 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:50:15.854 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Products.ProductReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.ProductController (idobrin-aspnet-api).
+2026-08-23 17:50:15.858 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:50:15.893 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Name`, `p`.`Price`
+FROM `Products` AS `p`
+2026-08-23 17:50:15.907 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 49.4985ms.
+2026-08-23 17:50:15.908 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Product, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Products.ProductReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:50:15.916 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) in 61.7145ms
+2026-08-23 17:50:15.916 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:50:15.916 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Product/all - 200 null application/json; charset=utf-8 67.449ms
+2026-08-23 17:50:27.885 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5271/api/User/login - application/json 50
+2026-08-23 17:50:27.886 +02:00 [INF] 127.0.0.1 requested access to /api/User/login via POST
+2026-08-23 17:50:27.887 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:50:27.889 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(idobrin_aspnet_logic.DTOs.User.UserLogin, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:50:27.905 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:50:28.028 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`Username` = @__username_0
+LIMIT 1
+2026-08-23 17:50:28.098 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 193.0383ms.
+2026-08-23 17:50:28.099 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-08-23 17:50:28.099 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) in 209.8132ms
+2026-08-23 17:50:28.099 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:50:28.099 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5271/api/User/login - 200 null text/plain; charset=utf-8 214.2732ms
+2026-08-23 17:50:43.450 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/User/all - null null
+2026-08-23 17:50:43.451 +02:00 [INF] 127.0.0.1 requested access to /api/User/all via GET
+2026-08-23 17:50:43.481 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:50:43.483 +02:00 [INF] Route matched with {action = "ReturnAll", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.User.UserReturn]]] ReturnAll(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:50:43.486 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:50:43.493 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+2026-08-23 17:50:43.495 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8.9562ms.
+2026-08-23 17:50:43.495 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.User, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.User.UserReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:50:43.498 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) in 15.1768ms
+2026-08-23 17:50:43.498 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:50:43.499 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/User/all - 200 null application/json; charset=utf-8 48.0922ms
+2026-08-23 17:52:40.809 +02:00 [INF] Application is shutting down...
+2026-08-23 17:53:03.435 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 17:53:03.499 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 17:53:03.500 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 17:53:03.500 +02:00 [INF] Hosting environment: Development
+2026-08-23 17:53:03.500 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 17:53:03.918 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 17:53:03.935 +02:00 [INF] 127.0.0.1 requested access to /swagger via GET
+2026-08-23 17:53:03.949 +02:00 [INF] Request time: "2026-08-23T17:53:03.9363545+02:00"-"2026-08-23T17:53:03.9495849+02:00"
+2026-08-23 17:53:03.952 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 35.2755ms
+2026-08-23 17:53:03.955 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 17:53:03.956 +02:00 [INF] 127.0.0.1 requested access to /swagger/index.html via GET
+2026-08-23 17:53:03.995 +02:00 [INF] Request time: "2026-08-23T17:53:03.9563264+02:00"-"2026-08-23T17:53:03.9949769+02:00"
+2026-08-23 17:53:03.995 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 39.7397ms
+2026-08-23 17:53:04.013 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 17:53:04.013 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui.css via GET
+2026-08-23 17:53:04.023 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 17:53:04.024 +02:00 [INF] Request time: "2026-08-23T17:53:04.0135613+02:00"-"2026-08-23T17:53:04.0242216+02:00"
+2026-08-23 17:53:04.024 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 11.6871ms
+2026-08-23 17:53:04.112 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-08-23 17:53:04.112 +02:00 [INF] 127.0.0.1 requested access to /swagger/favicon-16x16.png via GET
+2026-08-23 17:53:04.113 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-08-23 17:53:04.113 +02:00 [INF] Request time: "2026-08-23T17:53:04.1127482+02:00"-"2026-08-23T17:53:04.1133160+02:00"
+2026-08-23 17:53:04.113 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 1.221ms
+2026-08-23 17:53:04.144 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 17:53:04.144 +02:00 [INF] 127.0.0.1 requested access to /swagger/v1/swagger.json via GET
+2026-08-23 17:53:04.241 +02:00 [INF] Request time: "2026-08-23T17:53:04.1449813+02:00"-"2026-08-23T17:53:04.2415299+02:00"
+2026-08-23 17:53:04.241 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 97.2033ms
+2026-08-23 17:53:20.399 +02:00 [INF] Application is shutting down...
+2026-08-23 17:53:21.291 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 17:53:21.353 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 17:53:21.354 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 17:53:21.354 +02:00 [INF] Hosting environment: Development
+2026-08-23 17:53:21.354 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 17:53:21.796 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 17:53:21.814 +02:00 [INF] 127.0.0.1 requested access to /swagger via GET
+2026-08-23 17:53:21.828 +02:00 [INF] Request time: "2026-08-23T17:53:21.8153073+02:00"-"2026-08-23T17:53:21.8279804+02:00"
+2026-08-23 17:53:21.830 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 35.0276ms
+2026-08-23 17:53:21.834 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 17:53:21.835 +02:00 [INF] 127.0.0.1 requested access to /swagger/index.html via GET
+2026-08-23 17:53:21.876 +02:00 [INF] Request time: "2026-08-23T17:53:21.8353586+02:00"-"2026-08-23T17:53:21.8766817+02:00"
+2026-08-23 17:53:21.877 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 42.5888ms
+2026-08-23 17:53:21.893 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 17:53:21.893 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui.css via GET
+2026-08-23 17:53:21.905 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 17:53:21.906 +02:00 [INF] Request time: "2026-08-23T17:53:21.8937353+02:00"-"2026-08-23T17:53:21.9061133+02:00"
+2026-08-23 17:53:21.906 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 13.4481ms
+2026-08-23 17:53:21.994 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-08-23 17:53:21.994 +02:00 [INF] 127.0.0.1 requested access to /swagger/favicon-16x16.png via GET
+2026-08-23 17:53:21.994 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-08-23 17:53:21.995 +02:00 [INF] Request time: "2026-08-23T17:53:21.9946353+02:00"-"2026-08-23T17:53:21.9950850+02:00"
+2026-08-23 17:53:21.995 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 1.0016ms
+2026-08-23 17:53:22.018 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 17:53:22.018 +02:00 [INF] 127.0.0.1 requested access to /swagger/v1/swagger.json via GET
+2026-08-23 17:53:22.111 +02:00 [INF] Request time: "2026-08-23T17:53:22.0187148+02:00"-"2026-08-23T17:53:22.1109710+02:00"
+2026-08-23 17:53:22.111 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 92.9743ms
+2026-08-23 17:53:26.726 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Category/all - null null
+2026-08-23 17:53:26.728 +02:00 [INF] 127.0.0.1 requested access to /api/Category/all via GET
+2026-08-23 17:53:26.730 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 17:53:26.745 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:53:26.757 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Category.CategoryReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.CategoryController (idobrin-aspnet-api).
+2026-08-23 17:53:26.855 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:53:27.603 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Categories` AS `c`
+2026-08-23 17:53:27.650 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 792.1807ms.
+2026-08-23 17:53:27.654 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Category, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Category.CategoryReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:53:27.671 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api) in 911.4425ms
+2026-08-23 17:53:27.672 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:53:27.673 +02:00 [INF] Request time: "2026-08-23T17:53:26.7284058+02:00"-"2026-08-23T17:53:27.6735475+02:00"
+2026-08-23 17:53:27.679 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Category/all - 200 null application/json; charset=utf-8 952.3123ms
+2026-08-23 17:53:31.768 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Product/all - null null
+2026-08-23 17:53:31.768 +02:00 [INF] 127.0.0.1 requested access to /api/Product/all via GET
+2026-08-23 17:53:31.769 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:53:31.773 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Products.ProductReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.ProductController (idobrin-aspnet-api).
+2026-08-23 17:53:31.776 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:53:31.814 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Name`, `p`.`Price`
+FROM `Products` AS `p`
+2026-08-23 17:53:31.826 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 49.8564ms.
+2026-08-23 17:53:31.827 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Product, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Products.ProductReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:53:31.835 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) in 62.1614ms
+2026-08-23 17:53:31.835 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:53:31.835 +02:00 [INF] Request time: "2026-08-23T17:53:31.7690940+02:00"-"2026-08-23T17:53:31.8356040+02:00"
+2026-08-23 17:53:31.835 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Product/all - 200 null application/json; charset=utf-8 67.7932ms
+2026-08-23 17:53:42.937 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5271/api/User/login - application/json 50
+2026-08-23 17:53:42.938 +02:00 [INF] 127.0.0.1 requested access to /api/User/login via POST
+2026-08-23 17:53:42.939 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:53:42.942 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(idobrin_aspnet_logic.DTOs.User.UserLogin, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:53:42.955 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:53:43.075 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`Username` = @__username_0
+LIMIT 1
+2026-08-23 17:53:43.143 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 187.876ms.
+2026-08-23 17:53:43.144 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-08-23 17:53:43.144 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) in 201.7846ms
+2026-08-23 17:53:43.144 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:53:43.144 +02:00 [INF] Request time: "2026-08-23T17:53:42.9382363+02:00"-"2026-08-23T17:53:43.1445668+02:00"
+2026-08-23 17:53:43.144 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5271/api/User/login - 200 null text/plain; charset=utf-8 206.9719ms
+2026-08-23 17:54:00.333 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/User/all - null null
+2026-08-23 17:54:00.334 +02:00 [INF] 127.0.0.1 requested access to /api/User/all via GET
+2026-08-23 17:54:00.364 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:54:00.367 +02:00 [INF] Route matched with {action = "ReturnAll", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.User.UserReturn]]] ReturnAll(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:54:00.373 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:54:00.380 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+2026-08-23 17:54:00.381 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8.3244ms.
+2026-08-23 17:54:00.382 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.User, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.User.UserReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:54:00.384 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) in 17.3725ms
+2026-08-23 17:54:00.385 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:54:00.385 +02:00 [INF] Request time: "2026-08-23T17:54:00.3345140+02:00"-"2026-08-23T17:54:00.3851062+02:00"
+2026-08-23 17:54:00.385 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/User/all - 200 null application/json; charset=utf-8 52.0977ms
+2026-08-23 17:54:19.898 +02:00 [INF] Application is shutting down...
+2026-08-23 17:56:02.592 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 17:56:02.651 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 17:56:02.652 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 17:56:02.652 +02:00 [INF] Hosting environment: Development
+2026-08-23 17:56:02.652 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 17:56:03.102 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 17:56:03.120 +02:00 [INF] 127.0.0.1 requested access to /swagger via GET
+2026-08-23 17:56:03.134 +02:00 [INF] Request to /swagger took: 13.281
+2026-08-23 17:56:03.137 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 35.762ms
+2026-08-23 17:56:03.140 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 17:56:03.140 +02:00 [INF] 127.0.0.1 requested access to /swagger/index.html via GET
+2026-08-23 17:56:03.183 +02:00 [INF] Request to /swagger/index.html took: 42.4776
+2026-08-23 17:56:03.183 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 43.4985ms
+2026-08-23 17:56:03.194 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 17:56:03.194 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui.css via GET
+2026-08-23 17:56:03.205 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 17:56:03.205 +02:00 [INF] Request to /swagger/swagger-ui.css took: 11.1215
+2026-08-23 17:56:03.206 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 12.1304ms
+2026-08-23 17:56:03.296 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-08-23 17:56:03.296 +02:00 [INF] 127.0.0.1 requested access to /swagger/favicon-16x16.png via GET
+2026-08-23 17:56:03.297 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-08-23 17:56:03.297 +02:00 [INF] Request to /swagger/favicon-16x16.png took: 0.55
+2026-08-23 17:56:03.297 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 1.1032ms
+2026-08-23 17:56:03.312 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 17:56:03.313 +02:00 [INF] 127.0.0.1 requested access to /swagger/v1/swagger.json via GET
+2026-08-23 17:56:03.411 +02:00 [INF] Request to /swagger/v1/swagger.json took: 98.2708
+2026-08-23 17:56:03.411 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 98.9868ms
+2026-08-23 17:56:32.853 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Product/all - null null
+2026-08-23 17:56:32.854 +02:00 [INF] 127.0.0.1 requested access to /api/Product/all via GET
+2026-08-23 17:56:32.856 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 17:56:32.874 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:56:32.885 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Products.ProductReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.ProductController (idobrin-aspnet-api).
+2026-08-23 17:56:32.980 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:56:33.705 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Name`, `p`.`Price`
+FROM `Products` AS `p`
+2026-08-23 17:56:33.769 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 785.3783ms.
+2026-08-23 17:56:33.773 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Product, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Products.ProductReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:56:33.791 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) in 902.7551ms
+2026-08-23 17:56:33.791 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 17:56:33.792 +02:00 [INF] Request to /api/Product/all took: 937.9816
+2026-08-23 17:56:33.799 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Product/all - 200 null application/json; charset=utf-8 945.7542ms
+2026-08-23 17:56:37.141 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Municipality/all - null null
+2026-08-23 17:56:37.142 +02:00 [INF] 127.0.0.1 requested access to /api/Municipality/all via GET
+2026-08-23 17:56:37.143 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api)'
+2026-08-23 17:56:37.146 +02:00 [INF] Route matched with {action = "ReturnAllMunicipalities", controller = "Municipality"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Municipality.MunicipalityReturn]]] ReturnAllMunicipalities(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.MunicipalityController (idobrin-aspnet-api).
+2026-08-23 17:56:37.150 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:56:37.187 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`Id`, `m`.`CountryId`, `m`.`Name`
+FROM `Municipalities` AS `m`
+2026-08-23 17:56:37.194 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 43.9455ms.
+2026-08-23 17:56:37.194 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Municipality, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Municipality.MunicipalityReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:56:37.197 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api) in 51.005ms
+2026-08-23 17:56:37.197 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.MunicipalityController.ReturnAllMunicipalities (idobrin-aspnet-api)'
+2026-08-23 17:56:37.198 +02:00 [INF] Request to /api/Municipality/all took: 55.01
+2026-08-23 17:56:37.198 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Municipality/all - 200 null application/json; charset=utf-8 56.4785ms
+2026-08-23 17:56:47.277 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5271/api/User/login - application/json 50
+2026-08-23 17:56:47.277 +02:00 [INF] 127.0.0.1 requested access to /api/User/login via POST
+2026-08-23 17:56:47.279 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:56:47.284 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(idobrin_aspnet_logic.DTOs.User.UserLogin, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:56:47.297 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:56:47.417 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`Username` = @__username_0
+LIMIT 1
+2026-08-23 17:56:47.483 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 185.8633ms.
+2026-08-23 17:56:47.483 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-08-23 17:56:47.483 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) in 199.3825ms
+2026-08-23 17:56:47.483 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-08-23 17:56:47.483 +02:00 [INF] Request to /api/User/login took: 205.9271
+2026-08-23 17:56:47.484 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5271/api/User/login - 200 null text/plain; charset=utf-8 206.4813ms
+2026-08-23 17:56:56.077 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/User/all - null null
+2026-08-23 17:56:56.078 +02:00 [INF] 127.0.0.1 requested access to /api/User/all via GET
+2026-08-23 17:56:56.108 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:56:56.110 +02:00 [INF] Route matched with {action = "ReturnAll", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.User.UserReturn]]] ReturnAll(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-08-23 17:56:56.113 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 17:56:56.119 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+2026-08-23 17:56:56.120 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7.5172ms.
+2026-08-23 17:56:56.120 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.User, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.User.UserReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 17:56:56.123 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api) in 12.9079ms
+2026-08-23 17:56:56.123 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
+2026-08-23 17:56:56.123 +02:00 [INF] Request to /api/User/all took: 45.6896
+2026-08-23 17:56:56.124 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/User/all - 200 null application/json; charset=utf-8 46.7316ms
+2026-08-23 17:58:53.505 +02:00 [INF] Application is shutting down...

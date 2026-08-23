@@ -2,10 +2,10 @@ using System.Diagnostics;
 
 namespace idobrin_aspnet_api.Middleware;
 
-public class TraceRoute(RequestDelegate next, ILogger<TraceRoute> logger)
+public class GetherRouteInformationMiddleware(RequestDelegate next, ILogger<GetherRouteInformationMiddleware> logger)
 {
     private readonly RequestDelegate _next = next;
-    private readonly ILogger<TraceRoute> _logger = logger;
+    private readonly ILogger<GetherRouteInformationMiddleware> _logger = logger;
 
     public async Task Invoke(HttpContext context)
     {
