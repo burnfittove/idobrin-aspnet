@@ -7,11 +7,10 @@ namespace idobrin_aspnet_api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AddressController(IAddressService addressService, ILogger<AddressController> logger) : ControllerBase
+public class AddressController(IAddressService addressService) : ControllerBase
 {
     private readonly IAddressService _addressService = addressService;
-    private readonly ILogger<AddressController> _logger = logger;
-
+    
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -19,7 +18,6 @@ public class AddressController(IAddressService addressService, ILogger<AddressCo
         CancellationToken cancellationToken = default)
     {
         var entities = await _addressService.ReturnAll(cancellationToken);
-        _logger.LogInformation("Returning {count} addresses", entities.Count());
         return entities == null ? NotFound() : Ok(entities);
     }
 

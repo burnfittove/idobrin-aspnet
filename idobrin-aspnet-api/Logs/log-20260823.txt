@@ -1,0 +1,323 @@
+2026-08-23 13:29:33.374 +02:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-08-23 13:29:33.448 +02:00 [DBG] Hosting starting
+2026-08-23 13:29:33.455 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 13:29:33.460 +02:00 [DBG] Reading data from file '/home/userah/.aspnet/DataProtection-Keys/key-36d07bc3-3a21-435f-94d3-eb73146c6cd2.xml'.
+2026-08-23 13:29:33.469 +02:00 [DBG] Found key {36d07bc3-3a21-435f-94d3-eb73146c6cd2}.
+2026-08-23 13:29:33.476 +02:00 [DBG] Considering key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} with expiration date 2026-09-04 12:51:28Z as default key.
+2026-08-23 13:29:33.478 +02:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-08-23 13:29:33.479 +02:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2026-08-23 13:29:33.479 +02:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2026-08-23 13:29:33.481 +02:00 [DBG] Using key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} as the default key.
+2026-08-23 13:29:33.482 +02:00 [DBG] Key ring with default key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} was loaded during application startup.
+2026-08-23 13:29:33.505 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 13:29:33.505 +02:00 [DBG] Loaded hosting startup assembly idobrin-aspnet-api
+2026-08-23 13:29:33.505 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 13:29:33.505 +02:00 [INF] Hosting environment: Development
+2026-08-23 13:29:33.505 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 13:29:33.506 +02:00 [DBG] Hosting started
+2026-08-23 13:29:33.952 +02:00 [DBG] Connection id "0HNO11776R6HG" received FIN.
+2026-08-23 13:29:33.956 +02:00 [DBG] Connection id "0HNO11776R6HG" accepted.
+2026-08-23 13:29:33.956 +02:00 [DBG] Connection id "0HNO11776R6HG" started.
+2026-08-23 13:29:33.960 +02:00 [DBG] Connection id "0HNO11776R6HG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:29:33.964 +02:00 [DBG] Connection id "0HNO11776R6HG" disconnecting.
+2026-08-23 13:29:33.966 +02:00 [DBG] Connection id "0HNO11776R6HG" stopped.
+2026-08-23 13:29:34.063 +02:00 [DBG] Connection id "0HNO11776R6HH" accepted.
+2026-08-23 13:29:34.064 +02:00 [DBG] Connection id "0HNO11776R6HH" started.
+2026-08-23 13:29:34.080 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 13:29:34.082 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-08-23 13:29:34.096 +02:00 [DBG] No candidates found for the request path '/swagger'
+2026-08-23 13:29:34.096 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.113 +02:00 [DBG] Connection id "0HNO11776R6HH" completed keep alive response.
+2026-08-23 13:29:34.114 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 34.1312ms
+2026-08-23 13:29:34.117 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 13:29:34.118 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2026-08-23 13:29:34.118 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.161 +02:00 [DBG] Connection id "0HNO11776R6HH" completed keep alive response.
+2026-08-23 13:29:34.161 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 43.7348ms
+2026-08-23 13:29:34.183 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 13:29:34.183 +02:00 [DBG] Connection id "0HNO11776R6HI" accepted.
+2026-08-23 13:29:34.183 +02:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2026-08-23 13:29:34.183 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.184 +02:00 [DBG] Connection id "0HNO11776R6HJ" accepted.
+2026-08-23 13:29:34.184 +02:00 [DBG] Connection id "0HNO11776R6HI" started.
+2026-08-23 13:29:34.184 +02:00 [DBG] Connection id "0HNO11776R6HJ" started.
+2026-08-23 13:29:34.184 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-23 13:29:34.184 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - null null
+2026-08-23 13:29:34.184 +02:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+2026-08-23 13:29:34.184 +02:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2026-08-23 13:29:34.184 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.184 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.197 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-08-23 13:29:34.197 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 13:29:34.199 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-08-23 13:29:34.200 +02:00 [DBG] Connection id "0HNO11776R6HJ" completed keep alive response.
+2026-08-23 13:29:34.200 +02:00 [DBG] Connection id "0HNO11776R6HH" completed keep alive response.
+2026-08-23 13:29:34.200 +02:00 [DBG] Connection id "0HNO11776R6HI" completed keep alive response.
+2026-08-23 13:29:34.200 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 16.5197ms
+2026-08-23 13:29:34.200 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 17.4415ms
+2026-08-23 13:29:34.201 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 16.7064ms
+2026-08-23 13:29:34.332 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-08-23 13:29:34.332 +02:00 [DBG] No candidates found for the request path '/swagger/favicon-16x16.png'
+2026-08-23 13:29:34.332 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.333 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-08-23 13:29:34.333 +02:00 [DBG] Connection id "0HNO11776R6HI" completed keep alive response.
+2026-08-23 13:29:34.333 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 0.8344ms
+2026-08-23 13:29:34.352 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 13:29:34.352 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-08-23 13:29:34.352 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:29:34.442 +02:00 [DBG] Connection id "0HNO11776R6HI" completed keep alive response.
+2026-08-23 13:29:34.443 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.0613ms
+2026-08-23 13:31:29.868 +02:00 [DBG] Connection id "0HNO11776R6HI" received FIN.
+2026-08-23 13:31:29.869 +02:00 [DBG] Connection id "0HNO11776R6HJ" received FIN.
+2026-08-23 13:31:29.869 +02:00 [DBG] Connection id "0HNO11776R6HH" received FIN.
+2026-08-23 13:31:29.869 +02:00 [DBG] Connection id "0HNO11776R6HI" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:31:29.869 +02:00 [DBG] Connection id "0HNO11776R6HJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:31:29.869 +02:00 [DBG] Connection id "0HNO11776R6HH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:31:29.870 +02:00 [DBG] Connection id "0HNO11776R6HJ" disconnecting.
+2026-08-23 13:31:29.870 +02:00 [DBG] Connection id "0HNO11776R6HI" disconnecting.
+2026-08-23 13:31:29.870 +02:00 [DBG] Connection id "0HNO11776R6HH" disconnecting.
+2026-08-23 13:31:29.871 +02:00 [DBG] Connection id "0HNO11776R6HJ" stopped.
+2026-08-23 13:31:29.871 +02:00 [DBG] Connection id "0HNO11776R6HI" stopped.
+2026-08-23 13:31:29.871 +02:00 [DBG] Connection id "0HNO11776R6HH" stopped.
+2026-08-23 13:34:17.492 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:17.743 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:18.532 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:18.782 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:19.033 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:19.284 +02:00 [DBG] Config reload token fired. Checking for changes...
+2026-08-23 13:34:27.231 +02:00 [INF] Application is shutting down...
+2026-08-23 13:34:27.232 +02:00 [DBG] Hosting stopping
+2026-08-23 13:34:27.273 +02:00 [DBG] Hosting stopped
+2026-08-23 13:35:20.747 +02:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-08-23 13:35:20.815 +02:00 [DBG] Hosting starting
+2026-08-23 13:35:20.820 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 13:35:20.825 +02:00 [DBG] Reading data from file '/home/userah/.aspnet/DataProtection-Keys/key-36d07bc3-3a21-435f-94d3-eb73146c6cd2.xml'.
+2026-08-23 13:35:20.831 +02:00 [DBG] Found key {36d07bc3-3a21-435f-94d3-eb73146c6cd2}.
+2026-08-23 13:35:20.838 +02:00 [DBG] Considering key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} with expiration date 2026-09-04 12:51:28Z as default key.
+2026-08-23 13:35:20.839 +02:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-08-23 13:35:20.840 +02:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2026-08-23 13:35:20.840 +02:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2026-08-23 13:35:20.841 +02:00 [DBG] Using key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} as the default key.
+2026-08-23 13:35:20.842 +02:00 [DBG] Key ring with default key {36d07bc3-3a21-435f-94d3-eb73146c6cd2} was loaded during application startup.
+2026-08-23 13:35:20.860 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 13:35:20.860 +02:00 [DBG] Loaded hosting startup assembly idobrin-aspnet-api
+2026-08-23 13:35:20.860 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 13:35:20.861 +02:00 [INF] Hosting environment: Development
+2026-08-23 13:35:20.861 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 13:35:20.861 +02:00 [DBG] Hosting started
+2026-08-23 13:35:21.177 +02:00 [DBG] Connection id "0HNO11AEM7SBT" received FIN.
+2026-08-23 13:35:21.180 +02:00 [DBG] Connection id "0HNO11AEM7SBT" accepted.
+2026-08-23 13:35:21.181 +02:00 [DBG] Connection id "0HNO11AEM7SBT" started.
+2026-08-23 13:35:21.184 +02:00 [DBG] Connection id "0HNO11AEM7SBT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:35:21.188 +02:00 [DBG] Connection id "0HNO11AEM7SBT" disconnecting.
+2026-08-23 13:35:21.190 +02:00 [DBG] Connection id "0HNO11AEM7SBT" stopped.
+2026-08-23 13:35:21.277 +02:00 [DBG] Connection id "0HNO11AEM7SBU" accepted.
+2026-08-23 13:35:21.277 +02:00 [DBG] Connection id "0HNO11AEM7SBU" started.
+2026-08-23 13:35:21.289 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 13:35:21.292 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-08-23 13:35:21.306 +02:00 [DBG] No candidates found for the request path '/swagger'
+2026-08-23 13:35:21.306 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:35:21.320 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:35:21.321 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 31.9653ms
+2026-08-23 13:35:21.323 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 13:35:21.325 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2026-08-23 13:35:21.325 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:35:21.365 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:35:21.365 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 42.1876ms
+2026-08-23 13:35:21.385 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 13:35:21.386 +02:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2026-08-23 13:35:21.386 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:35:21.397 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 13:35:21.398 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:35:21.398 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 12.8297ms
+2026-08-23 13:35:21.487 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - null null
+2026-08-23 13:35:21.487 +02:00 [DBG] No candidates found for the request path '/swagger/favicon-32x32.png'
+2026-08-23 13:35:21.487 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:35:21.488 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-23 13:35:21.488 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:35:21.488 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - 200 628 image/png 1.1453ms
+2026-08-23 13:35:21.494 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 13:35:21.494 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-08-23 13:35:21.494 +02:00 [DBG] Request did not match any endpoints
+2026-08-23 13:35:21.585 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:35:21.586 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.5105ms
+2026-08-23 13:36:30.132 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Address/all - null null
+2026-08-23 13:36:30.135 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Address/all'
+2026-08-23 13:36:30.136 +02:00 [DBG] Endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)' with route pattern 'api/Address/all' is valid for the request path '/api/Address/all'
+2026-08-23 13:36:30.137 +02:00 [DBG] Request matched endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)'
+2026-08-23 13:36:30.137 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2026-08-23 13:36:30.138 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 13:36:30.157 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-08-23 13:36:30.158 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)'
+2026-08-23 13:36:30.171 +02:00 [INF] Route matched with {action = "GetAll", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Address.AddressReturn]]] GetAllAsync(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.AddressController (idobrin-aspnet-api).
+2026-08-23 13:36:30.172 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-08-23 13:36:30.172 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-08-23 13:36:30.172 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-08-23 13:36:30.172 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-08-23 13:36:30.172 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-08-23 13:36:30.173 +02:00 [DBG] Executing controller factory for controller idobrin_aspnet_api.Controllers.AddressController (idobrin-aspnet-api)
+2026-08-23 13:36:30.262 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2026-08-23 13:36:30.270 +02:00 [DBG] Executed controller factory for controller idobrin_aspnet_api.Controllers.AddressController (idobrin-aspnet-api)
+2026-08-23 13:36:30.274 +02:00 [DBG] Attempting to bind parameter 'cancellationToken' of type 'System.Threading.CancellationToken' ...
+2026-08-23 13:36:30.275 +02:00 [DBG] Done attempting to bind parameter 'cancellationToken' of type 'System.Threading.CancellationToken'.
+2026-08-23 13:36:30.275 +02:00 [DBG] Attempting to validate the bound parameter 'cancellationToken' of type 'System.Threading.CancellationToken' ...
+2026-08-23 13:36:30.275 +02:00 [DBG] Done attempting to validate the bound parameter 'cancellationToken' of type 'System.Threading.CancellationToken'.
+2026-08-23 13:36:30.280 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 13:36:30.635 +02:00 [DBG] The index {'CartId'} was not created on entity type 'CartItem' as the properties are already covered by the index {'CartId', 'ItemId'}.
+2026-08-23 13:36:30.635 +02:00 [DBG] The index {'CategoryId'} was not created on entity type 'CategoryProducts' as the properties are already covered by the index {'CategoryId', 'ProductId'}.
+2026-08-23 13:36:30.635 +02:00 [DBG] The index {'WishlistId'} was not created on entity type 'WishlistProducts' as the properties are already covered by the index {'WishlistId', 'ProductId'}.
+2026-08-23 13:36:30.839 +02:00 [DBG] Entity Framework Core 8.0.25 initialized 'DatabaseContext' using provider 'Pomelo.EntityFrameworkCore.MySql:8.0.3' with options: ServerVersion=11.8.8-mariadb 
+2026-08-23 13:36:30.859 +02:00 [DBG] Compiling query expression: 
+'DbSet<Address>()'
+2026-08-23 13:36:30.968 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Address>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Address.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Address.AddressLine (string) Required, 1], [Property: Address.MunicipalityId (int) Required FK Index, 2], [Property: Address.PostalCode (string) Required, 3], [Property: Address.UserId (int) Required FK Index, 4] }
+        SELECT a.Id, a.AddressLine, a.MunicipalityId, a.PostalCode, a.UserId
+        FROM Addresses AS a), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Address>, 
+    idobrin_aspnet_dal.Configs.DatabaseContext, 
+    False, 
+    False, 
+    True
+)'
+2026-08-23 13:36:30.993 +02:00 [DBG] Creating DbConnection.
+2026-08-23 13:36:30.996 +02:00 [DBG] Created DbConnection. (2ms).
+2026-08-23 13:36:30.998 +02:00 [DBG] Opening connection to database 'aspnetStg' on server 'localhost'.
+2026-08-23 13:36:31.008 +02:00 [DBG] Opened connection to database 'aspnetStg' on server 'localhost'.
+2026-08-23 13:36:31.012 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2026-08-23 13:36:31.015 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2026-08-23 13:36:31.016 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (4ms).
+2026-08-23 13:36:31.020 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AddressLine`, `a`.`MunicipalityId`, `a`.`PostalCode`, `a`.`UserId`
+FROM `Addresses` AS `a`
+2026-08-23 13:36:31.031 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AddressLine`, `a`.`MunicipalityId`, `a`.`PostalCode`, `a`.`UserId`
+FROM `Addresses` AS `a`
+2026-08-23 13:36:31.038 +02:00 [DBG] Closing data reader to 'aspnetStg' on server 'localhost'.
+2026-08-23 13:36:31.041 +02:00 [DBG] A data reader for 'aspnetStg' on server 'localhost' is being disposed after spending 5ms reading results.
+2026-08-23 13:36:31.044 +02:00 [DBG] Closing connection to database 'aspnetStg' on server 'localhost'.
+2026-08-23 13:36:31.045 +02:00 [DBG] Closed connection to database 'aspnetStg' on server 'localhost' (0ms).
+2026-08-23 13:36:31.046 +02:00 [INF] Returning 0 addresses
+2026-08-23 13:36:31.049 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 766.4632ms.
+2026-08-23 13:36:31.054 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-08-23 13:36:31.056 +02:00 [DBG] Attempting to select an output formatter based on Accept header '["text/plain"]'.
+2026-08-23 13:36:31.057 +02:00 [DBG] Could not find an output formatter based on content negotiation. Accepted types were (["text/plain"])
+2026-08-23 13:36:31.057 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-08-23 13:36:31.057 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-08-23 13:36:31.057 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-08-23 13:36:31.058 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Address, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Address.AddressReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 13:36:31.067 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api) in 891.6268ms
+2026-08-23 13:36:31.067 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)'
+2026-08-23 13:36:31.068 +02:00 [DBG] Connection id "0HNO11AEM7SBU" completed keep alive response.
+2026-08-23 13:36:31.070 +02:00 [DBG] 'DatabaseContext' disposed.
+2026-08-23 13:36:31.072 +02:00 [DBG] Disposing connection to database 'aspnetStg' on server 'localhost'.
+2026-08-23 13:36:31.073 +02:00 [DBG] Disposed connection to database 'aspnetStg' on server 'localhost' (0ms).
+2026-08-23 13:36:31.074 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Address/all - 200 null application/json; charset=utf-8 941.9951ms
+2026-08-23 13:38:04.650 +02:00 [INF] Application is shutting down...
+2026-08-23 13:38:04.650 +02:00 [DBG] Hosting stopping
+2026-08-23 13:38:04.656 +02:00 [DBG] Connection id "0HNO11AEM7SBU" disconnecting.
+2026-08-23 13:38:04.657 +02:00 [DBG] Connection id "0HNO11AEM7SBU" stopped.
+2026-08-23 13:38:04.657 +02:00 [DBG] Connection id "0HNO11AEM7SBU" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-08-23 13:38:04.660 +02:00 [DBG] Hosting stopped
+2026-08-23 13:38:21.945 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 13:38:22.003 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 13:38:22.004 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 13:38:22.005 +02:00 [INF] Hosting environment: Development
+2026-08-23 13:38:22.005 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 13:38:22.454 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 13:38:22.482 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 28.5564ms
+2026-08-23 13:38:22.484 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 13:38:22.523 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 38.9994ms
+2026-08-23 13:38:22.542 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 13:38:22.552 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 13:38:22.553 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 11.2511ms
+2026-08-23 13:38:22.636 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - null null
+2026-08-23 13:38:22.637 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-23 13:38:22.637 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - 200 628 image/png 1.0276ms
+2026-08-23 13:38:22.646 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 13:38:22.738 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.9233ms
+2026-08-23 13:38:27.688 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Address/all - null null
+2026-08-23 13:38:27.691 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 13:38:27.705 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)'
+2026-08-23 13:38:27.718 +02:00 [INF] Route matched with {action = "GetAll", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Address.AddressReturn]]] GetAllAsync(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.AddressController (idobrin-aspnet-api).
+2026-08-23 13:38:27.815 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 13:38:28.521 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AddressLine`, `a`.`MunicipalityId`, `a`.`PostalCode`, `a`.`UserId`
+FROM `Addresses` AS `a`
+2026-08-23 13:38:28.535 +02:00 [INF] Returning 0 addresses
+2026-08-23 13:38:28.539 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 720.6436ms.
+2026-08-23 13:38:28.544 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Address, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Address.AddressReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 13:38:28.560 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api) in 838.1821ms
+2026-08-23 13:38:28.560 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.AddressController.GetAllAsync (idobrin-aspnet-api)'
+2026-08-23 13:38:28.568 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Address/all - 200 null application/json; charset=utf-8 880.5732ms
+2026-08-23 13:39:11.287 +02:00 [INF] Application is shutting down...
+2026-08-23 15:17:06.864 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 15:17:06.927 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 15:17:06.928 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 15:17:06.928 +02:00 [INF] Hosting environment: Development
+2026-08-23 15:17:06.928 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 15:17:07.362 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 15:17:07.395 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 33.351ms
+2026-08-23 15:17:07.400 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 15:17:07.444 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 43.9282ms
+2026-08-23 15:17:07.467 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-08-23 15:17:07.467 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - null null
+2026-08-23 15:17:07.467 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-23 15:17:07.479 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-08-23 15:17:07.479 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-08-23 15:17:07.479 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-08-23 15:17:07.480 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 13.3872ms
+2026-08-23 15:17:07.480 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 13.0723ms
+2026-08-23 15:17:07.480 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 13.2062ms
+2026-08-23 15:17:07.563 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - null null
+2026-08-23 15:17:07.564 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-23 15:17:07.564 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-32x32.png - 200 628 image/png 0.7296ms
+2026-08-23 15:17:07.589 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 15:17:07.687 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 98.0176ms
+2026-08-23 15:17:15.553 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Category/all - null null
+2026-08-23 15:17:15.557 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 15:17:15.575 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 15:17:15.587 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Category.CategoryReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.CategoryController (idobrin-aspnet-api).
+2026-08-23 15:17:15.685 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 15:17:16.430 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Categories` AS `c`
+2026-08-23 15:17:16.481 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 793.2201ms.
+2026-08-23 15:17:16.486 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Category, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Category.CategoryReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 15:17:16.503 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api) in 913.2461ms
+2026-08-23 15:17:16.504 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.CategoryController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 15:17:16.510 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Category/all - 200 null application/json; charset=utf-8 957.0922ms
+2026-08-23 15:18:11.516 +02:00 [INF] Application is shutting down...
+2026-08-23 15:19:10.986 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-08-23 15:19:11.047 +02:00 [INF] Now listening on: http://localhost:5271
+2026-08-23 15:19:11.048 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-23 15:19:11.048 +02:00 [INF] Hosting environment: Development
+2026-08-23 15:19:11.048 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-08-23 15:19:11.484 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-08-23 15:19:11.503 +02:00 [INF] 127.0.0.1 request access to /swagger via GET
+2026-08-23 15:19:11.516 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 32.6018ms
+2026-08-23 15:19:11.521 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-08-23 15:19:11.522 +02:00 [INF] 127.0.0.1 request access to /swagger/index.html via GET
+2026-08-23 15:19:11.565 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 43.4007ms
+2026-08-23 15:19:11.699 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-08-23 15:19:11.700 +02:00 [INF] 127.0.0.1 request access to /swagger/v1/swagger.json via GET
+2026-08-23 15:19:11.801 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 101.8472ms
+2026-08-23 15:19:21.014 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/Product/all - null null
+2026-08-23 15:19:21.015 +02:00 [INF] 127.0.0.1 request access to /api/Product/all via GET
+2026-08-23 15:19:21.017 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-08-23 15:19:21.034 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 15:19:21.046 +02:00 [INF] Route matched with {action = "ReturnAllProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[idobrin_aspnet_logic.DTOs.Products.ProductReturn]]] ReturnAllProducts(System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.ProductController (idobrin-aspnet-api).
+2026-08-23 15:19:21.142 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) - Validation state: "Valid"
+2026-08-23 15:19:21.908 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Name`, `p`.`Price`
+FROM `Products` AS `p`
+2026-08-23 15:19:21.976 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 830.1556ms.
+2026-08-23 15:19:21.983 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[aspnet_domain.Entities.Product, idobrin-aspnet-domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[idobrin_aspnet_logic.DTOs.Products.ProductReturn, idobrin-aspnet-logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-23 15:19:22.005 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api) in 956.2673ms
+2026-08-23 15:19:22.006 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.ProductController.ReturnAllProducts (idobrin-aspnet-api)'
+2026-08-23 15:19:22.020 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/Product/all - 200 null application/json; charset=utf-8 1006.301ms
+2026-08-23 15:21:44.733 +02:00 [INF] Application is shutting down...
