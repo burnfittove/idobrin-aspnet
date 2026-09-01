@@ -25,7 +25,7 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return await  _unitOfWork.UserRepository.ExistsAsync(id, cancellationToken);
     }
 
-    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
         var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
         if (entity == null) return false;
@@ -35,8 +35,9 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         return true;
     }
 
-    public async Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken)
+    public async Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken = default)
     {
+        if (string.IsNullOrWhiteSpace(user.FirstName) || string.IsNullOrWhiteSpace(user.LastName) || string.IsNullOrWhiteSpace(user.Username)) return null;
         var entity = user.ToEntity();
         await _unitOfWork.UserRepository.CreateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
