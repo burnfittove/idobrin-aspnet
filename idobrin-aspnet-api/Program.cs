@@ -1,5 +1,6 @@
 using System.Text;
 using aspnet_domain.Interfaces;
+using idobrin_aspnet_api.Middleware;
 using idobrin_aspnet_dal.Configs;
 using idobrin_aspnet_dal.Repositories;
 using idobrin_aspnet_logic.Interfaces;
@@ -9,15 +10,19 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// ##### DATABASE STUFF #####
 // Register DBContext
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("StagingConnection"), 
     serverVersion:ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("StagingConnection"))));
+
 // Register UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 // Register Repos
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IMunicipalityRepository, MunicipalityRepository>();
@@ -35,6 +40,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<ICartService, CartService>();
+
+
+// ##### TOKEN STUFF #####
 // Configure JWT security services
 var secureKey = builder.Configuration["JWT:SecureKey"];
 builder.Services
@@ -49,13 +57,20 @@ builder.Services
         };
     });
 
+
+// ##### POLICIES #####
 // Admin requirement policy
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
-
 // Elevated rights requirement policy
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("ElevatedRights", policy => policy.RequireRole("Admin", "Management"));
+
+
+// ##### MIDDLEWARE #####
+// Serilog
+builder.Host.UseSerilog(
+    (context, config) => config.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -94,6 +109,9 @@ builder.Services.AddSwaggerGen(option =>
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<GetherRouteInformationMiddleware>();
+app.UseMiddleware<RequestResponseTimeMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

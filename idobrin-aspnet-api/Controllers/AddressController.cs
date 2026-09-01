@@ -10,7 +10,7 @@ namespace idobrin_aspnet_api.Controllers;
 public class AddressController(IAddressService addressService) : ControllerBase
 {
     private readonly IAddressService _addressService = addressService;
-
+    
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
