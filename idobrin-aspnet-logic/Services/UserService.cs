@@ -37,7 +37,11 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
 
     public async Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken = default)
     {
+        // Check for empty parameters
         if (string.IsNullOrWhiteSpace(user.FirstName) || string.IsNullOrWhiteSpace(user.LastName) || string.IsNullOrWhiteSpace(user.Username)) return null;
+        // Check for existing username
+        if (await UsernameExistsAsync(user.Username, cancellationToken)) return null;
+        
         var entity = user.ToEntity();
         await _unitOfWork.UserRepository.CreateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -46,14 +50,21 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
 
     public async Task<bool> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken)
     {
+        // Check if the user exists
         if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
-
+        
+        // Check if the new username is already taken
+        if (await UsernameExistsAsync(user.Username, cancellationToken)) return false;
+        
+        // Change entries
+        entity.Username = user.Username;
         entity.FirstName = user.FirstName;
         entity.LastName = user.Lastname;
         entity.Email = user.Email;
         entity.PhoneNumber = user.PhoneNumber;
 
+        // Finish update
         await _unitOfWork.UserRepository.UpdateAsync(entity, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;

@@ -46,9 +46,9 @@ public class Tests
     // }
     
     [Test]
-    public void CheckUsername_ShouldNotBeEmpty()
+    public void CheckUsername_ShouldReturnNull_WhenUsernameIsEmpty()
     {
-        // ### Assert ###
+        // ### Arrange ###
         var password = Guid.NewGuid().ToString();
         var testUser = new UserRegister
         {
@@ -75,8 +75,46 @@ public class Tests
     }
 
     [Test]
-    public void CheckUsername_ShouldNotAlreadyExist()
+    public void CheckUsername_ShouldReturnNull_WhenUsernameIsTaken()
     {
-        Assert.Pass();
+        // ### Arrange ###
+        // User 'johnny' exists, attempt to add a new one
+        var password = Guid.NewGuid().ToString();
+        var testUser = new UserRegister
+        {
+            Username = "johnny",
+            Password = password,
+            FirstName = "FirstName",
+            LastName = "LastName",
+            PhoneNumber = "",
+            Email = "",
+        };
+        
+        // Hash the password
+        var b64salt = PasswordHashProvider.GetSalt();
+        var b64hash = PasswordHashProvider.GetHash(testUser.Password, b64salt);
+
+        // Create user
+        var entity = testUser.ToCreateDto(b64salt, b64hash, 1);
+        
+        // ### Act ###
+        var result = mockUserService.CreateAsync(entity).Result;
+        
+        // ### Assert ###
+        Assert.That(result, Is.EqualTo(null));
+    }
+    
+    [Test]
+    public void CheckUsername_ShouldReturnFalse_WhenUsernameIsTaken()
+    {
+        // ### Arrange ###
+        // User 'johnny1234', id 3 should not be able to update their username to 'johnny', id 2
+        var testUser = new UserUpdate(3, "johnny", "FirstName", "LastName", "", "");
+        
+        // ## Act ###
+        var result = mockUserService.UpdateAsync(testUser.Id, testUser).Result;
+        
+        // ### Assert ###
+        Assert.That(result, Is.False);
     }
 }

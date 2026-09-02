@@ -61,7 +61,7 @@ public class UserController(IUserService userService, IConfiguration config) : C
         if (id != user.Id) return BadRequest("ID mismatch");
 
         var result = await _userService.UpdateAsync(id, user, cancellationToken);
-        return result == true ? Ok(result) : NotFound();
+        return result ? Ok(result) : NotFound();
     }
 
     [HttpPost("register")]
@@ -72,8 +72,7 @@ public class UserController(IUserService userService, IConfiguration config) : C
     {
         // Check if the username exists in the database
         var trimmedUsername = user.Username.Trim();
-        if (await _userService.UsernameExistsAsync(trimmedUsername, cancellationToken))
-            BadRequest("Username already exists");
+        user.Username = trimmedUsername;
 
         // Hash the password
         var b64salt = PasswordHashProvider.GetSalt();
