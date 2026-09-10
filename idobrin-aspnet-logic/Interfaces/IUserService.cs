@@ -14,11 +14,11 @@ public interface IUserService
     Task<IEnumerable<UserReturn?>> ReturnAllAsync(CancellationToken cancellationToken = default);
     
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
-    Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
-    Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken);
-    Task<bool> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken);
-    Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken);
+    Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default);
+    Task<UserReturn?> CreateAsync(UserCreate user, CancellationToken cancellationToken = default);
+    Task<bool> UpdateAsync(int id, UserUpdate user, CancellationToken cancellationToken = default);
+    Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken = default);
     
     Task<UserReturn?> ReturnByUsername(string username, CancellationToken cancellationToken = default);
-    Task<bool> UpdateRoleAsync(int id, UserUpdateRole user, CancellationToken cancellationToken);
+    Task<bool> UpdateRoleAsync(int id, UserUpdateRole user, CancellationToken cancellationToken = default);
 }

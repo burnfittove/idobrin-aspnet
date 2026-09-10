@@ -61,19 +61,18 @@ public class UserController(IUserService userService, IConfiguration config) : C
         if (id != user.Id) return BadRequest("ID mismatch");
 
         var result = await _userService.UpdateAsync(id, user, cancellationToken);
-        return result == true ? Ok(result) : NotFound();
+        return result ? Ok(result) : NotFound();
     }
 
     [HttpPost("register")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<UserCreate>> Register(UserRegister user,
+    public async Task<ActionResult<UserCreate?>> Register(UserRegister user,
         CancellationToken cancellationToken = default)
     {
         // Check if the username exists in the database
         var trimmedUsername = user.Username.Trim();
-        if (await _userService.UsernameExistsAsync(trimmedUsername, cancellationToken))
-            BadRequest("Username already exists");
+        user.Username = trimmedUsername;
 
         // Hash the password
         var b64salt = PasswordHashProvider.GetSalt();
@@ -83,8 +82,8 @@ public class UserController(IUserService userService, IConfiguration config) : C
         var entity = user.ToCreateDto(b64salt, b64hash, 1);
 
         // Add the user
-        await _userService.CreateAsync(entity, cancellationToken);
-        return Ok(entity);
+        var result = await _userService.CreateAsync(entity, cancellationToken);
+        return result == null ? BadRequest("Invalid information entered.") : Ok(result);
     }
 
     [HttpPost("login")]
