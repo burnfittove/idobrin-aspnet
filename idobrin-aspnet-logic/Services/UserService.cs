@@ -54,8 +54,9 @@ public class UserService(IUnitOfWork unitOfWork) : IUserService
         if (!await ExistsAsync(id, cancellationToken)) return false;
         var entity = await _unitOfWork.UserRepository.ReturnByIdAsync(id, cancellationToken);
         
-        // Check if the new username is already taken
-        if (await UsernameExistsAsync(user.Username, cancellationToken)) return false;
+        // Check if the new username is already taken if it's a different username
+        if (entity?.Username != user.Username)
+            if (await UsernameExistsAsync(user.Username, cancellationToken)) return false;
         
         // Change entries
         entity.Username = user.Username;

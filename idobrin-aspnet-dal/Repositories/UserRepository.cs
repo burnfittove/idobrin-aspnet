@@ -7,6 +7,7 @@ namespace idobrin_aspnet_dal.Repositories;
 
 public class UserRepository(DatabaseContext context) : BaseRepository<User>(context), IUserRepository
 {
+    
     public async Task<User> ReturnUserWithCartById(int id, CancellationToken cancellationToken)
     {
         return await DbSet
