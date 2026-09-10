@@ -2339,3 +2339,144 @@ LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
 2026-09-10 13:33:30.725 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnAll (idobrin-aspnet-api)'
 2026-09-10 13:33:30.725 +02:00 [INF] Request to /api/User/all took: 3.3217 ms.
 2026-09-10 13:33:30.725 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/User/all - 200 null application/json; charset=utf-8 3.7347ms
+2026-09-10 14:45:56.606 +02:00 [INF] User profile is available. Using '/home/userah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-09-10 14:45:56.665 +02:00 [INF] Now listening on: http://localhost:5271
+2026-09-10 14:45:56.666 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-10 14:45:56.666 +02:00 [INF] Hosting environment: Development
+2026-09-10 14:45:56.666 +02:00 [INF] Content root path: /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api
+2026-09-10 14:45:57.115 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger - null null
+2026-09-10 14:45:57.132 +02:00 [INF] 127.0.0.1 requested access to /swagger via GET
+2026-09-10 14:45:57.147 +02:00 [INF] Request to /swagger took: 13.3002 ms.
+2026-09-10 14:45:57.150 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger - 301 0 null 35.5372ms
+2026-09-10 14:45:57.153 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/index.html - null null
+2026-09-10 14:45:57.154 +02:00 [INF] 127.0.0.1 requested access to /swagger/index.html via GET
+2026-09-10 14:45:57.193 +02:00 [INF] Request to /swagger/index.html took: 39.3208 ms.
+2026-09-10 14:45:57.194 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/index.html - 200 null text/html;charset=utf-8 40.361ms
+2026-09-10 14:45:57.210 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - null null
+2026-09-10 14:45:57.210 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-10 14:45:57.210 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - null null
+2026-09-10 14:45:57.210 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui.css via GET
+2026-09-10 14:45:57.211 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui-standalone-preset.js via GET
+2026-09-10 14:45:57.211 +02:00 [INF] 127.0.0.1 requested access to /swagger/swagger-ui-bundle.js via GET
+2026-09-10 14:45:57.222 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-09-10 14:45:57.222 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-09-10 14:45:57.222 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-09-10 14:45:57.223 +02:00 [INF] Request to /swagger/swagger-ui-standalone-preset.js took: 12.4621 ms.
+2026-09-10 14:45:57.223 +02:00 [INF] Request to /swagger/swagger-ui-bundle.js took: 12.3679 ms.
+2026-09-10 14:45:57.223 +02:00 [INF] Request to /swagger/swagger-ui.css took: 12.5257 ms.
+2026-09-10 14:45:57.224 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 13.6615ms
+2026-09-10 14:45:57.224 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 13.6584ms
+2026-09-10 14:45:57.224 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/swagger-ui.css - 200 152034 text/css 13.9045ms
+2026-09-10 14:45:57.310 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - null null
+2026-09-10 14:45:57.310 +02:00 [INF] 127.0.0.1 requested access to /swagger/favicon-16x16.png via GET
+2026-09-10 14:45:57.310 +02:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-09-10 14:45:57.310 +02:00 [INF] Request to /swagger/favicon-16x16.png took: 0.341 ms.
+2026-09-10 14:45:57.310 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/favicon-16x16.png - 200 665 image/png 0.7881ms
+2026-09-10 14:45:57.328 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - null null
+2026-09-10 14:45:57.329 +02:00 [INF] 127.0.0.1 requested access to /swagger/v1/swagger.json via GET
+2026-09-10 14:45:57.418 +02:00 [INF] Request to /swagger/v1/swagger.json took: 89.063 ms.
+2026-09-10 14:45:57.418 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 89.7361ms
+2026-09-10 14:46:08.099 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5271/api/Cart/9 - null null
+2026-09-10 14:46:08.100 +02:00 [INF] 127.0.0.1 requested access to /api/Cart/9 via DELETE
+2026-09-10 14:46:08.102 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-09-10 14:46:08.118 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-10 14:46:08.120 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-10 14:46:08.120 +02:00 [INF] Request to /api/Cart/9 took: 20.1702 ms.
+2026-09-10 14:46:08.120 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5271/api/Cart/9 - 401 0 null 21.2862ms
+2026-09-10 14:46:19.631 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5271/api/User/login - application/json 50
+2026-09-10 14:46:19.632 +02:00 [INF] 127.0.0.1 requested access to /api/User/login via POST
+2026-09-10 14:46:19.635 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-09-10 14:46:19.649 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(idobrin_aspnet_logic.DTOs.User.UserLogin, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-09-10 14:46:19.763 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) - Validation state: "Valid"
+2026-09-10 14:46:20.569 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`Username` = @__username_0
+LIMIT 1
+2026-09-10 14:46:20.682 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 916.5341ms.
+2026-09-10 14:46:20.687 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-09-10 14:46:20.690 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api) in 1038.1189ms
+2026-09-10 14:46:20.691 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.Login (idobrin-aspnet-api)'
+2026-09-10 14:46:20.692 +02:00 [INF] Request to /api/User/login took: 1060.1431 ms.
+2026-09-10 14:46:20.698 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5271/api/User/login - 200 null text/plain; charset=utf-8 1066.9157ms
+2026-09-10 14:46:30.376 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5271/api/Cart/912 - null null
+2026-09-10 14:46:30.376 +02:00 [INF] 127.0.0.1 requested access to /api/Cart/912 via DELETE
+2026-09-10 14:46:30.407 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.CartController.DeleteCart (idobrin-aspnet-api)'
+2026-09-10 14:46:30.410 +02:00 [INF] Route matched with {action = "DeleteCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCart(Int32, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.CartController (idobrin-aspnet-api).
+2026-09-10 14:46:30.415 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.CartController.DeleteCart (idobrin-aspnet-api) - Validation state: "Valid"
+2026-09-10 14:46:30.485 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`TotalPrice`, `t`.`UserId`, `t0`.`CartId`, `t0`.`ItemId`, `t0`.`Id`, `t0`.`ProductId`, `t0`.`Quantity`, `t0`.`TotalPrice`, `t0`.`Id0`, `t0`.`Name`, `t0`.`Price`
+FROM (
+    SELECT `c`.`Id`, `c`.`TotalPrice`, `c`.`UserId`
+    FROM `Carts` AS `c`
+    WHERE `c`.`Id` = @__id_0
+    LIMIT 1
+) AS `t`
+LEFT JOIN (
+    SELECT `c0`.`CartId`, `c0`.`ItemId`, `i`.`Id`, `i`.`ProductId`, `i`.`Quantity`, `i`.`TotalPrice`, `p`.`Id` AS `Id0`, `p`.`Name`, `p`.`Price`
+    FROM `CartItems` AS `c0`
+    INNER JOIN `Items` AS `i` ON `c0`.`ItemId` = `i`.`Id`
+    INNER JOIN `Products` AS `p` ON `i`.`ProductId` = `p`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`CartId`
+ORDER BY `t`.`Id`, `t0`.`CartId`, `t0`.`ItemId`, `t0`.`Id`
+2026-09-10 14:46:30.486 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.CartController.DeleteCart (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 71.0913ms.
+2026-09-10 14:46:30.486 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2026-09-10 14:46:30.496 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.CartController.DeleteCart (idobrin-aspnet-api) in 85.753ms
+2026-09-10 14:46:30.496 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.CartController.DeleteCart (idobrin-aspnet-api)'
+2026-09-10 14:46:30.496 +02:00 [INF] Request to /api/Cart/912 took: 119.5432 ms.
+2026-09-10 14:46:30.496 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5271/api/Cart/912 - 404 null application/problem+json; charset=utf-8 120.3901ms
+2026-09-10 14:46:38.323 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5271/api/Address/123 - null null
+2026-09-10 14:46:38.325 +02:00 [INF] 127.0.0.1 requested access to /api/Address/123 via DELETE
+2026-09-10 14:46:38.325 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.AddressController.DeleteAddress (idobrin-aspnet-api)'
+2026-09-10 14:46:38.328 +02:00 [INF] Route matched with {action = "DeleteAddress", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteAddress(Int32, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.AddressController (idobrin-aspnet-api).
+2026-09-10 14:46:38.331 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.AddressController.DeleteAddress (idobrin-aspnet-api) - Validation state: "Valid"
+2026-09-10 14:46:38.349 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AddressLine`, `a`.`MunicipalityId`, `a`.`PostalCode`, `a`.`UserId`
+FROM `Addresses` AS `a`
+WHERE `a`.`Id` = @__p_0
+LIMIT 1
+2026-09-10 14:46:38.350 +02:00 [INF] Executed action method idobrin_aspnet_api.Controllers.AddressController.DeleteAddress (idobrin-aspnet-api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 19.2363ms.
+2026-09-10 14:46:38.350 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2026-09-10 14:46:38.351 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.AddressController.DeleteAddress (idobrin-aspnet-api) in 22.4414ms
+2026-09-10 14:46:38.351 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.AddressController.DeleteAddress (idobrin-aspnet-api)'
+2026-09-10 14:46:38.351 +02:00 [INF] Request to /api/Address/123 took: 25.8661 ms.
+2026-09-10 14:46:38.351 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5271/api/Address/123 - 404 null application/problem+json; charset=utf-8 27.5448ms
+2026-09-10 14:52:06.235 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5271/api/User/1 - null null
+2026-09-10 14:52:06.236 +02:00 [INF] 127.0.0.1 requested access to /api/User/1 via GET
+2026-09-10 14:52:06.236 +02:00 [INF] Executing endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnUser (idobrin-aspnet-api)'
+2026-09-10 14:52:06.239 +02:00 [INF] Route matched with {action = "ReturnUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[idobrin_aspnet_logic.DTOs.User.UserReturn]] ReturnUser(Int32, System.Threading.CancellationToken) on controller idobrin_aspnet_api.Controllers.UserController (idobrin-aspnet-api).
+2026-09-10 14:52:06.278 +02:00 [INF] Executing action method idobrin_aspnet_api.Controllers.UserController.ReturnUser (idobrin-aspnet-api) - Validation state: "Valid"
+2026-09-10 14:52:06.291 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PhoneNumber`, `u`.`PwdHash`, `u`.`PwdSalt`, `u`.`RoleId`, `u`.`Username`, `r`.`Id`, `r`.`RoleType`
+FROM `Users` AS `u`
+LEFT JOIN `Roles` AS `r` ON `u`.`RoleId` = `r`.`Id`
+WHERE `u`.`Id` = @__id_0
+LIMIT 1
+2026-09-10 14:52:06.292 +02:00 [INF] Executed action idobrin_aspnet_api.Controllers.UserController.ReturnUser (idobrin-aspnet-api) in 52.672ms
+2026-09-10 14:52:06.292 +02:00 [INF] Executed endpoint 'idobrin_aspnet_api.Controllers.UserController.ReturnUser (idobrin-aspnet-api)'
+2026-09-10 14:52:06.293 +02:00 [ERR] Unhandled exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at idobrin_aspnet_logic.Extensions.Dto2EntityMapping.ToDto(User user) in /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-logic/Extensions/Dto2EntityMapping.cs:line 177
+   at idobrin_aspnet_logic.Services.UserService.ReturnByIdAsync(Int32 id, CancellationToken cancellationToken) in /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-logic/Services/UserService.cs:line 15
+   at idobrin_aspnet_api.Controllers.UserController.ReturnUser(Int32 id, CancellationToken cancellationToken) in /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api/Controllers/UserController.cs:line 22
+   at lambda_method152(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at idobrin_aspnet_api.Middleware.GlobalExceptionHandler.Invoke(HttpContext context) in /home/userah/Documents/RiderProjects/WebAPI/idobrin-aspnet/idobrin-aspnet-api/Middleware/GlobalExceptionHandler.cs:line 14
+2026-09-10 14:52:06.305 +02:00 [INF] Request to /api/User/1 took: 69.122 ms.
+2026-09-10 14:52:06.305 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5271/api/User/1 - 500 null application/json; charset=utf-8 70.099ms
+2026-09-10 14:52:27.694 +02:00 [INF] Application is shutting down...
