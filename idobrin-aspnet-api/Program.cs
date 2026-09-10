@@ -110,8 +110,9 @@ builder.Services.AddSwaggerGen(option =>
 
 var app = builder.Build();
 
-app.UseMiddleware<GetherRouteInformationMiddleware>();
+app.UseMiddleware<GatherRouteInformationMiddleware>();
 app.UseMiddleware<RequestResponseTimeMiddleware>();
+app.UseMiddleware<GlobalExceptionHandler>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
